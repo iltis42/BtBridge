@@ -8,9 +8,6 @@
 #include "freertos/task.h"
 #include "esp_task_wdt.h"
 
-#include "string.h"
-#include "esp_system.h"
-#include "nvs_flash.h"
 
 #include "ESP32NVS.h"
 #include "BTSender.h"
@@ -19,12 +16,8 @@
 #include <esp_wifi.h>
 #include "sensor.h"
 #include "Version.h"
-#include "rom/uart.h"
 
-#include "nvs_flash.h"
 #include "driver/uart.h"
-#include "freertos/queue.h"
-#include "esp_log.h"
 #include "soc/uart_struct.h"
 
 
@@ -38,10 +31,8 @@ xSemaphoreHandle xMutex=NULL;
 Setup setup;
 TaskHandle_t *bpid;
 TaskHandle_t *spid;
-TaskHandle_t *tpid;
 
-//                     mosi,    miso,         scl,           dc,       reset,        cs
-
+#define BUF_SIZE 2048
 
 
 void handleRfcommRx( char * rx, uint16_t len ){
@@ -52,23 +43,17 @@ void handleRfcommRx( char * rx, uint16_t len ){
 	}
 }
 
-
 BTSender btsender( handleRfcommRx  );
 
-#define BUF_SIZE 2048
 
 void readData(void *pvParameters){
 	while (1) {
-//		TickType_t xLastWakeTime = xTaskGetTickCount();
 		int len = uart_read_bytes(uart_num, data, 10, 200 / portTICK_RATE_MS);
-		// data[len+1] = 0;
-		//Write data back to BT
 		if( len > 0 ) {
 //			printf( "UART RX: %d %s\n", len, (char *)data);
 			btsender.send( (char *)data, len );
 		}
 		esp_task_wdt_reset();
-		// vTaskDelayUntil(&xLastWakeTime, 500/portTICK_PERIOD_MS);
 	}
 }
 
