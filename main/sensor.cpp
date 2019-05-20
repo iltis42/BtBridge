@@ -31,13 +31,9 @@ xSemaphoreHandle xMutex=NULL;
 Setup setup;
 TaskHandle_t *bpid;
 TaskHandle_t *spid;
-<<<<<<< HEAD
 
 #define BUF_SIZE 2048
 
-=======
-TaskHandle_t *tpid;
->>>>>>> a4e38ae10c66ddd86ba97c3da2167057d39c8c55
 
 void handleRfcommRx( char * rx, uint16_t len ){
 	printf("RFCOMM packet, %s, len %d %d\n", rx, len, strlen( rx ));
