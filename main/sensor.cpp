@@ -40,10 +40,6 @@ TaskHandle_t *bpid;
 TaskHandle_t *spid;
 TaskHandle_t *tpid;
 
-//                     mosi,    miso,         scl,           dc,       reset,        cs
-
-
-
 void handleRfcommRx( char * rx, uint16_t len ){
 	printf("RFCOMM packet, %s, len %d %d\n", rx, len, strlen( rx ));
 	int l = uart_write_bytes(uart_num, (const char*) rx, len);
