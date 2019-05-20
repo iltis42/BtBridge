@@ -28,29 +28,6 @@
 #include "soc/uart_struct.h"
 
 
-/*
-
-BMP280:
-
-  BMP  ESP   col  ESP32 GPIO_NUM optimized
-                  TE-bmp280      Baro-bmp280
-# VCC  GPIO13     13             13
-# GND  GND    sw  GND            GND
-# SCL  SCK    br  12             12
-# SDA  MISO   rt  14             14
-# CSB  CS     or  27             25    (diff)
-# SDO  MOSI   ge  26             26
-
-BMP:
-    SCK - This is the SPI Clock pin, its an input to the chip
-
-    SDO - this is the Serial Data Out / Master In Slave Out pin (MISO), for data sent from the BMP183 to your processor
-
-    SDI - this is the Serial Data In / Master Out Slave In pin (MOSI), for data sent from your processor to the BME280
-
-    CS - this is the Chip Select pin, drop it low to start an SPI transaction. Its an input to the chip
-
- */
 
 
 static uint8_t* data;
