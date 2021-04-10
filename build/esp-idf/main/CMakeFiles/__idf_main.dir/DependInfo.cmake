@@ -60,8 +60,6 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/gittest2/esp/esp-idf/components/esp_eth/include"
   "/home/gittest2/esp/esp-idf/components/tcpip_adapter/include"
   "/home/gittest2/esp/esp-idf/components/app_trace/include"
-  "../components/ucglib/csrc"
-  "../components/ucglib/cppsrc"
   "../components/arduino-esp32/variants/esp32"
   "../components/arduino-esp32/cores/esp32"
   "../components/arduino-esp32/libraries/EEPROM/src"
@@ -101,8 +99,6 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "../components/ESP32-OTA-Webserver"
   "/home/gittest2/esp/esp-idf/components/esp_http_server/include"
   "../components/I2Cbus/include"
-  "../components/MPUdriver/include"
-  "../components/MPUdriver"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/gittest2/BtBridge/main/AnalogInput.cpp" "/home/gittest2/BtBridge/build/esp-idf/main/CMakeFiles/__idf_main.dir/AnalogInput.cpp.obj"
@@ -177,8 +173,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/gittest2/esp/esp-idf/components/esp_eth/include"
   "/home/gittest2/esp/esp-idf/components/tcpip_adapter/include"
   "/home/gittest2/esp/esp-idf/components/app_trace/include"
-  "../components/ucglib/csrc"
-  "../components/ucglib/cppsrc"
   "../components/arduino-esp32/variants/esp32"
   "../components/arduino-esp32/cores/esp32"
   "../components/arduino-esp32/libraries/EEPROM/src"
@@ -218,8 +212,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../components/ESP32-OTA-Webserver"
   "/home/gittest2/esp/esp-idf/components/esp_http_server/include"
   "../components/I2Cbus/include"
-  "../components/MPUdriver/include"
-  "../components/MPUdriver"
   )
 
 # Targets to which this target links.
@@ -237,14 +229,12 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/gittest2/BtBridge/build/esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/esp32/CMakeFiles/__idf_esp32.dir/DependInfo.cmake"
-  "/home/gittest2/BtBridge/build/esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/esp_adc_cal/CMakeFiles/__idf_esp_adc_cal.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/driver/CMakeFiles/__idf_driver.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/DependInfo.cmake"
-  "/home/gittest2/BtBridge/build/esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/mdns/CMakeFiles/__idf_mdns.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/console/CMakeFiles/__idf_console.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/bt/CMakeFiles/__idf_bt.dir/DependInfo.cmake"

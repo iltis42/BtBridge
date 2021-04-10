@@ -541,8 +541,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj: ../components/arduino-esp3
 esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj: ../components/arduino-esp32/cores/esp32/pgmspace.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj: ../components/arduino-esp32/cores/esp32/stdlib_noniso.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj: ../components/arduino-esp32/variants/esp32/pins_arduino.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj: ../components/ucglib/cppsrc/Ucglib.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj: ../components/ucglib/csrc/ucg.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj: ../main/Flarm.cpp
 esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj: ../main/Flarm.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj: ../main/RingBufCPP.h
@@ -943,11 +941,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/OnewireRmt.cpp.obj: /home/gittest2/esp/es
 esp-idf/main/CMakeFiles/__idf_main.dir/OnewireRmt.cpp.obj: /home/gittest2/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h
 esp-idf/main/CMakeFiles/__idf_main.dir/OnewireRmt.cpp.obj: config/sdkconfig.h
 
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/I2Cbus/include/I2Cbus.hpp
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/MPUdriver/include/MPU.hpp
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/MPUdriver/include/mpu/math.hpp
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/MPUdriver/include/mpu/registers.hpp
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/MPUdriver/include/mpu/types.hpp
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/arduino-esp32/cores/esp32/Arduino.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/arduino-esp32/cores/esp32/Client.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/arduino-esp32/cores/esp32/Esp.h
@@ -983,8 +976,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/arduino-
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/arduino-esp32/cores/esp32/stdlib_noniso.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/arduino-esp32/libraries/BluetoothSerial/src/BluetoothSerial.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/arduino-esp32/variants/esp32/pins_arduino.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/ucglib/cppsrc/Ucglib.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../components/ucglib/csrc/ucg.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../main/logdef.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../main/AnalogInput.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: ../main/BTSender.h
@@ -1002,7 +993,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/driver/esp32/include/driver/adc.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/driver/include/driver/adc_common.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/driver/include/driver/gpio.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/driver/include/driver/i2c.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_adc_cal/include/esp_adc_cal.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_common/include/esp_assert.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_common/include/esp_bit_defs.h
@@ -1014,7 +1004,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_hw_support/include/soc/compare_set.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_hw_support/include/soc/cpu.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_hw_support/include/soc/spinlock.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_rom/include/esp32/rom/gpio.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/esp_rom/include/esp32c3/rom/ets_sys.h
@@ -1050,7 +1039,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/hal/include/hal/cpu_types.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/hal/include/hal/esp_flash_err.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/hal/include/hal/gpio_types.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/hal/include/hal/i2c_types.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/hal/include/hal/spi_flash_types.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/heap/include/esp_heap_caps.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj: /home/gittest2/esp/esp-idf/components/heap/include/multi_heap.h
@@ -1131,8 +1119,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj: ../components/arduino-esp
 esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj: ../components/arduino-esp32/cores/esp32/stdlib_noniso.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj: ../components/arduino-esp32/libraries/BluetoothSerial/src/BluetoothSerial.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj: ../components/arduino-esp32/variants/esp32/pins_arduino.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj: ../components/ucglib/cppsrc/Ucglib.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj: ../components/ucglib/csrc/ucg.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj: ../main/logdef.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj: ../main/AnalogInput.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj: ../main/BTSender.h
@@ -1278,8 +1264,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj: ../components/arduino-esp
 esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj: ../components/arduino-esp32/cores/esp32/stdlib_noniso.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj: ../components/arduino-esp32/libraries/BluetoothSerial/src/BluetoothSerial.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj: ../components/arduino-esp32/variants/esp32/pins_arduino.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj: ../components/ucglib/cppsrc/Ucglib.h
-esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj: ../components/ucglib/csrc/ucg.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj: ../main/logdef.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj: ../main/AnalogInput.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj: ../main/BTSender.h

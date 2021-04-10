@@ -542,8 +542,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Flarm.cpp.obj
  ../components/arduino-esp32/cores/esp32/pgmspace.h
  ../components/arduino-esp32/cores/esp32/stdlib_noniso.h
  ../components/arduino-esp32/variants/esp32/pins_arduino.h
- ../components/ucglib/cppsrc/Ucglib.h
- ../components/ucglib/csrc/ucg.h
  /home/gittest2/BtBridge/main/Flarm.cpp
  /home/gittest2/BtBridge/main/Flarm.h
  /home/gittest2/BtBridge/main/RingBufCPP.h
@@ -944,11 +942,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/OnewireRmt.cpp.obj
  /home/gittest2/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h
  config/sdkconfig.h
 esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj
- ../components/I2Cbus/include/I2Cbus.hpp
- ../components/MPUdriver/include/MPU.hpp
- ../components/MPUdriver/include/mpu/math.hpp
- ../components/MPUdriver/include/mpu/registers.hpp
- ../components/MPUdriver/include/mpu/types.hpp
  ../components/arduino-esp32/cores/esp32/Arduino.h
  ../components/arduino-esp32/cores/esp32/Client.h
  ../components/arduino-esp32/cores/esp32/Esp.h
@@ -984,8 +977,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj
  ../components/arduino-esp32/cores/esp32/stdlib_noniso.h
  ../components/arduino-esp32/libraries/BluetoothSerial/src/BluetoothSerial.h
  ../components/arduino-esp32/variants/esp32/pins_arduino.h
- ../components/ucglib/cppsrc/Ucglib.h
- ../components/ucglib/csrc/ucg.h
  ../main/logdef.h
  /home/gittest2/BtBridge/main/AnalogInput.h
  /home/gittest2/BtBridge/main/BTSender.h
@@ -1003,7 +994,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj
  /home/gittest2/esp/esp-idf/components/driver/esp32/include/driver/adc.h
  /home/gittest2/esp/esp-idf/components/driver/include/driver/adc_common.h
  /home/gittest2/esp/esp-idf/components/driver/include/driver/gpio.h
- /home/gittest2/esp/esp-idf/components/driver/include/driver/i2c.h
  /home/gittest2/esp/esp-idf/components/esp_adc_cal/include/esp_adc_cal.h
  /home/gittest2/esp/esp-idf/components/esp_common/include/esp_assert.h
  /home/gittest2/esp/esp-idf/components/esp_common/include/esp_bit_defs.h
@@ -1015,7 +1005,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj
  /home/gittest2/esp/esp-idf/components/esp_hw_support/include/soc/compare_set.h
  /home/gittest2/esp/esp-idf/components/esp_hw_support/include/soc/cpu.h
  /home/gittest2/esp/esp-idf/components/esp_hw_support/include/soc/spinlock.h
- /home/gittest2/esp/esp-idf/components/esp_ringbuf/include/freertos/ringbuf.h
  /home/gittest2/esp/esp-idf/components/esp_rom/include/esp32/rom/ets_sys.h
  /home/gittest2/esp/esp-idf/components/esp_rom/include/esp32/rom/gpio.h
  /home/gittest2/esp/esp-idf/components/esp_rom/include/esp32c3/rom/ets_sys.h
@@ -1051,7 +1040,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Protocols.cpp.obj
  /home/gittest2/esp/esp-idf/components/hal/include/hal/cpu_types.h
  /home/gittest2/esp/esp-idf/components/hal/include/hal/esp_flash_err.h
  /home/gittest2/esp/esp-idf/components/hal/include/hal/gpio_types.h
- /home/gittest2/esp/esp-idf/components/hal/include/hal/i2c_types.h
  /home/gittest2/esp/esp-idf/components/hal/include/hal/spi_flash_types.h
  /home/gittest2/esp/esp-idf/components/heap/include/esp_heap_caps.h
  /home/gittest2/esp/esp-idf/components/heap/include/multi_heap.h
@@ -1132,8 +1120,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Router.cpp.obj
  ../components/arduino-esp32/cores/esp32/stdlib_noniso.h
  ../components/arduino-esp32/libraries/BluetoothSerial/src/BluetoothSerial.h
  ../components/arduino-esp32/variants/esp32/pins_arduino.h
- ../components/ucglib/cppsrc/Ucglib.h
- ../components/ucglib/csrc/ucg.h
  ../main/logdef.h
  /home/gittest2/BtBridge/main/AnalogInput.h
  /home/gittest2/BtBridge/main/BTSender.h
@@ -1279,8 +1265,6 @@ esp-idf/main/CMakeFiles/__idf_main.dir/Serial.cpp.obj
  ../components/arduino-esp32/cores/esp32/stdlib_noniso.h
  ../components/arduino-esp32/libraries/BluetoothSerial/src/BluetoothSerial.h
  ../components/arduino-esp32/variants/esp32/pins_arduino.h
- ../components/ucglib/cppsrc/Ucglib.h
- ../components/ucglib/csrc/ucg.h
  ../main/logdef.h
  /home/gittest2/BtBridge/main/AnalogInput.h
  /home/gittest2/BtBridge/main/BTSender.h

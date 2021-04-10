@@ -54,9 +54,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "ldgen_libraries.in"
   "../components/ESP32-OTA-Webserver/CMakeLists.txt"
   "../components/I2Cbus/CMakeLists.txt"
-  "../components/MPUdriver/CMakeLists.txt"
   "../components/arduino-esp32/CMakeLists.txt"
-  "../components/ucglib/CMakeLists.txt"
   "../main/CMakeLists.txt"
   "../partitions.csv"
   "../sdkconfig"
@@ -345,8 +343,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "esp-idf/ESP32-OTA-Webserver/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/I2Cbus/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/arduino-esp32/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "esp-idf/MPUdriver/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "esp-idf/ucglib/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/main/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -467,7 +463,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/DependInfo.cmake"
   "esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/DependInfo.cmake"
   "esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/DependInfo.cmake"
-  "esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/DependInfo.cmake"
-  "esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/DependInfo.cmake"
   "esp-idf/main/CMakeFiles/__idf_main.dir/DependInfo.cmake"
   )

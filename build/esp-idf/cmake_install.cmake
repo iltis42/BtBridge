@@ -119,8 +119,6 @@ if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   include("/home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/cmake_install.cmake")
   include("/home/gittest2/BtBridge/build/esp-idf/I2Cbus/cmake_install.cmake")
   include("/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/cmake_install.cmake")
-  include("/home/gittest2/BtBridge/build/esp-idf/MPUdriver/cmake_install.cmake")
-  include("/home/gittest2/BtBridge/build/esp-idf/ucglib/cmake_install.cmake")
   include("/home/gittest2/BtBridge/build/esp-idf/main/cmake_install.cmake")
 
 endif()

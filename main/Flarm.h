@@ -3,7 +3,6 @@
 #include <cstdlib> // abs
 #include <string> // std::string
 #include <locale> // std::locale, std::toupper
-#include <Ucglib.h>
 #include "RingBufCPP.h"  // SString, tbd: extra header
 
 
@@ -31,7 +30,6 @@ public:
 
 private:
 
- 	static Ucglib_ILI9341_18x240x320_HWSPI* ucg;
 	static int RX,TX,GPS,Power;
 	static int AlarmLevel;
 	static int RelativeBearing,RelativeVertical,RelativeDistance;

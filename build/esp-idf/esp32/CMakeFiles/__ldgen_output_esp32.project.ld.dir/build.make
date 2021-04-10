@@ -172,8 +172,6 @@ esp-idf/esp32/ld/esp32.project.ld: esp-idf/wifi_provisioning/libwifi_provisionin
 esp-idf/esp32/ld/esp32.project.ld: esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a
 esp-idf/esp32/ld/esp32.project.ld: esp-idf/I2Cbus/libI2Cbus.a
 esp-idf/esp32/ld/esp32.project.ld: esp-idf/arduino-esp32/libarduino-esp32.a
-esp-idf/esp32/ld/esp32.project.ld: esp-idf/MPUdriver/libMPUdriver.a
-esp-idf/esp32/ld/esp32.project.ld: esp-idf/ucglib/libucglib.a
 esp-idf/esp32/ld/esp32.project.ld: esp-idf/main/libmain.a
 esp-idf/esp32/ld/esp32.project.ld: /home/gittest2/BtBridge/sdkconfig
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating ld/esp32.project.ld"

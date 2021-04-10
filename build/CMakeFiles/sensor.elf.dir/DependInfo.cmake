@@ -141,10 +141,6 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../components/arduino-esp32/libraries/Update/src"
   "../components/arduino-esp32/libraries/Wire/src"
   "../components/arduino-esp32/libraries/BluetoothSerial/src"
-  "../components/MPUdriver/include"
-  "../components/MPUdriver"
-  "../components/ucglib/csrc"
-  "../components/ucglib/cppsrc"
   "../main"
   )
 
@@ -224,8 +220,6 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/DependInfo.cmake"
-  "/home/gittest2/BtBridge/build/esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/DependInfo.cmake"
-  "/home/gittest2/BtBridge/build/esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/main/CMakeFiles/__idf_main.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/DependInfo.cmake"

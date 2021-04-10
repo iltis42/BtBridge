@@ -8,5 +8,5 @@ C_INCLUDES = -I/home/gittest2/BtBridge/build/config -I/home/gittest2/esp/esp-idf
 
 C_FLAGS = -mlongcalls -Wno-frame-address -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -ggdb -O2 -fstack-protector -std=gnu99 -Wno-old-style-declaration -D_GNU_SOURCE -DIDF_VER=\"v4.3-dev-2586-g526f68239-dirty\" -DESP_PLATFORM -DNDEBUG
 
-# Custom defines: esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_app_desc.c.obj_DEFINES = PROJECT_VER="e13587a-dirty"; PROJECT_NAME="sensor"
+# Custom defines: esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_app_desc.c.obj_DEFINES = PROJECT_VER="0f7fdc1-dirty"; PROJECT_NAME="sensor"
 

@@ -72,6 +72,4 @@ $<TARGET_FILE:__idf_wifi_provisioning>
 $<TARGET_FILE:__idf_ESP32-OTA-Webserver>
 $<TARGET_FILE:__idf_I2Cbus>
 $<TARGET_FILE:__idf_arduino-esp32>
-$<TARGET_FILE:__idf_MPUdriver>
-$<TARGET_FILE:__idf_ucglib>
 $<TARGET_FILE:__idf_main>

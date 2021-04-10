@@ -189,8 +189,6 @@ esp-idf/all: esp-idf/wifi_provisioning/all
 esp-idf/all: esp-idf/ESP32-OTA-Webserver/all
 esp-idf/all: esp-idf/I2Cbus/all
 esp-idf/all: esp-idf/arduino-esp32/all
-esp-idf/all: esp-idf/MPUdriver/all
-esp-idf/all: esp-idf/ucglib/all
 esp-idf/all: esp-idf/main/all
 
 .PHONY : esp-idf/all
@@ -276,8 +274,6 @@ esp-idf/preinstall: esp-idf/wifi_provisioning/preinstall
 esp-idf/preinstall: esp-idf/ESP32-OTA-Webserver/preinstall
 esp-idf/preinstall: esp-idf/I2Cbus/preinstall
 esp-idf/preinstall: esp-idf/arduino-esp32/preinstall
-esp-idf/preinstall: esp-idf/MPUdriver/preinstall
-esp-idf/preinstall: esp-idf/ucglib/preinstall
 esp-idf/preinstall: esp-idf/main/preinstall
 
 .PHONY : esp-idf/preinstall
@@ -363,8 +359,6 @@ esp-idf/clean: esp-idf/wifi_provisioning/clean
 esp-idf/clean: esp-idf/ESP32-OTA-Webserver/clean
 esp-idf/clean: esp-idf/I2Cbus/clean
 esp-idf/clean: esp-idf/arduino-esp32/clean
-esp-idf/clean: esp-idf/MPUdriver/clean
-esp-idf/clean: esp-idf/ucglib/clean
 esp-idf/clean: esp-idf/main/clean
 
 .PHONY : esp-idf/clean
@@ -404,24 +398,6 @@ esp-idf/I2Cbus/preinstall:
 esp-idf/I2Cbus/clean: esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/clean
 
 .PHONY : esp-idf/I2Cbus/clean
-
-#=============================================================================
-# Directory level rules for directory esp-idf/MPUdriver
-
-# Recursive "all" directory target.
-esp-idf/MPUdriver/all: esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all
-
-.PHONY : esp-idf/MPUdriver/all
-
-# Recursive "preinstall" directory target.
-esp-idf/MPUdriver/preinstall:
-
-.PHONY : esp-idf/MPUdriver/preinstall
-
-# Recursive "clean" directory target.
-esp-idf/MPUdriver/clean: esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/clean
-
-.PHONY : esp-idf/MPUdriver/clean
 
 #=============================================================================
 # Directory level rules for directory esp-idf/app_trace
@@ -1901,24 +1877,6 @@ esp-idf/tinyusb/clean:
 .PHONY : esp-idf/tinyusb/clean
 
 #=============================================================================
-# Directory level rules for directory esp-idf/ucglib
-
-# Recursive "all" directory target.
-esp-idf/ucglib/all: esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all
-
-.PHONY : esp-idf/ucglib/all
-
-# Recursive "preinstall" directory target.
-esp-idf/ucglib/preinstall:
-
-.PHONY : esp-idf/ucglib/preinstall
-
-# Recursive "clean" directory target.
-esp-idf/ucglib/clean: esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/clean
-
-.PHONY : esp-idf/ucglib/clean
-
-#=============================================================================
 # Directory level rules for directory esp-idf/ulp
 
 # Recursive "all" directory target.
@@ -2057,7 +2015,7 @@ CMakeFiles/uf2.dir/all: CMakeFiles/bootloader.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/uf2.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 99
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 100
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/uf2.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : CMakeFiles/uf2.dir/rule
@@ -2215,8 +2173,6 @@ CMakeFiles/sensor.elf.dir/all: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_p
 CMakeFiles/sensor.elf.dir/all: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all
 CMakeFiles/sensor.elf.dir/all: esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/all
 CMakeFiles/sensor.elf.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
-CMakeFiles/sensor.elf.dir/all: esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all
-CMakeFiles/sensor.elf.dir/all: esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all
 CMakeFiles/sensor.elf.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensor.elf.dir/build.make CMakeFiles/sensor.elf.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensor.elf.dir/build.make CMakeFiles/sensor.elf.dir/build
@@ -2385,12 +2341,12 @@ CMakeFiles/_project_elf_src.dir/clean:
 CMakeFiles/bootloader.dir/all: esp-idf/partition_table/CMakeFiles/partition_table_bin.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bootloader.dir/build.make CMakeFiles/bootloader.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/bootloader.dir/build.make CMakeFiles/bootloader.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target bootloader"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=92 "Built target bootloader"
 .PHONY : CMakeFiles/bootloader.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/bootloader.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/bootloader.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : CMakeFiles/bootloader.dir/rule
@@ -2525,7 +2481,7 @@ esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all: esp-idf/mbedtls/CMakeFiles/__idf
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/rule
@@ -2574,12 +2530,12 @@ esp-idf/mbedtls/CMakeFiles/custom_bundle.dir/clean:
 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all: esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/build.make esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/build.make esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=68 "Built target __idf_mbedtls"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=70 "Built target __idf_mbedtls"
 .PHONY : esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/rule
@@ -2633,7 +2589,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/all: esp-idf/esp_pm/CMakeFile
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/lib.dir/rule
@@ -2660,7 +2616,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all: esp-idf/mbedtls/mbed
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 48
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 51
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/rule
@@ -2687,7 +2643,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/all: esp-idf/mbedtls/mbe
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 48
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 51
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/rule
@@ -2714,7 +2670,7 @@ esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/all: esp-idf/efuse/CMa
 
 # Build rule for subdir invocation for target.
 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 47
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 50
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/rule
@@ -2741,7 +2697,7 @@ esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all: esp-idf/bootloader_support/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/efuse/CMakeFiles/__idf_efuse.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 41
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 44
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/efuse/CMakeFiles/__idf_efuse.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/efuse/CMakeFiles/__idf_efuse.dir/rule
@@ -2876,7 +2832,7 @@ esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/all: esp-idf/
 
 # Build rule for subdir invocation for target.
 esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 41
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 44
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/rule
@@ -3011,7 +2967,7 @@ esp-idf/app_update/CMakeFiles/__idf_app_update.dir/all: esp-idf/esp_ipc/CMakeFil
 
 # Build rule for subdir invocation for target.
 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 43
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/app_update/CMakeFiles/__idf_app_update.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/app_update/CMakeFiles/__idf_app_update.dir/rule
@@ -3060,12 +3016,12 @@ esp-idf/app_update/CMakeFiles/read_otadata.dir/clean:
 esp-idf/app_update/CMakeFiles/blank_ota_data.dir/all:
 	$(MAKE) $(MAKESILENT) -f esp-idf/app_update/CMakeFiles/blank_ota_data.dir/build.make esp-idf/app_update/CMakeFiles/blank_ota_data.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/app_update/CMakeFiles/blank_ota_data.dir/build.make esp-idf/app_update/CMakeFiles/blank_ota_data.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=92 "Built target blank_ota_data"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target blank_ota_data"
 .PHONY : esp-idf/app_update/CMakeFiles/blank_ota_data.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/app_update/CMakeFiles/blank_ota_data.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/app_update/CMakeFiles/blank_ota_data.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/app_update/CMakeFiles/blank_ota_data.dir/rule
@@ -3168,12 +3124,12 @@ esp-idf/app_update/CMakeFiles/encrypted-otadata-flash.dir/clean:
 esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/all: esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/build.make esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/build.make esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=37 "Built target __idf_esp_ipc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_esp_ipc"
 .PHONY : esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 43
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/rule
@@ -3195,12 +3151,12 @@ esp-idf/esp_ipc/CMakeFiles/__idf_esp_ipc.dir/clean:
 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all: esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/build.make esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/build.make esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=77,78 "Built target __idf_spi_flash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=80 "Built target __idf_spi_flash"
 .PHONY : esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 39
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 43
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/rule
@@ -3222,12 +3178,12 @@ esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/clean:
 esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all: esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/build.make esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/build.make esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=72 "Built target __idf_nvs_flash"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=74 "Built target __idf_nvs_flash"
 .PHONY : esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 37
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 42
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/rule
@@ -3249,12 +3205,12 @@ esp-idf/nvs_flash/CMakeFiles/__idf_nvs_flash.dir/clean:
 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all: esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/pthread/CMakeFiles/__idf_pthread.dir/build.make esp-idf/pthread/CMakeFiles/__idf_pthread.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/pthread/CMakeFiles/__idf_pthread.dir/build.make esp-idf/pthread/CMakeFiles/__idf_pthread.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_pthread"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=77 "Built target __idf_pthread"
 .PHONY : esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 41
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/pthread/CMakeFiles/__idf_pthread.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/pthread/CMakeFiles/__idf_pthread.dir/rule
@@ -3281,7 +3237,7 @@ esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all: esp-idf/esp_system/CMa
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 40
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/rule
@@ -3303,12 +3259,12 @@ esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/clean:
 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all: esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/build.make esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/build.make esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=40 "Built target __idf_esp_system"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=41 "Built target __idf_esp_system"
 .PHONY : esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 36
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 40
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/rule
@@ -3330,12 +3286,12 @@ esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/clean:
 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all: esp-idf/hal/CMakeFiles/__idf_hal.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/build.make esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/build.make esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_esp_rom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=40 "Built target __idf_esp_rom"
 .PHONY : esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 39
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/rule
@@ -3357,12 +3313,12 @@ esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/clean:
 esp-idf/hal/CMakeFiles/__idf_hal.dir/all: esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/hal/CMakeFiles/__idf_hal.dir/build.make esp-idf/hal/CMakeFiles/__idf_hal.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/hal/CMakeFiles/__idf_hal.dir/build.make esp-idf/hal/CMakeFiles/__idf_hal.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=48,49,50 "Built target __idf_hal"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=50,51,52 "Built target __idf_hal"
 .PHONY : esp-idf/hal/CMakeFiles/__idf_hal.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/hal/CMakeFiles/__idf_hal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 35
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 38
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/hal/CMakeFiles/__idf_hal.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/hal/CMakeFiles/__idf_hal.dir/rule
@@ -3389,7 +3345,7 @@ esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all: esp-idf/esp_eth/CMakeFiles/__idf_esp_e
 
 # Build rule for subdir invocation for target.
 esp-idf/vfs/CMakeFiles/__idf_vfs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 32
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/vfs/CMakeFiles/__idf_vfs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/vfs/CMakeFiles/__idf_vfs.dir/rule
@@ -3411,12 +3367,12 @@ esp-idf/vfs/CMakeFiles/__idf_vfs.dir/clean:
 esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all: esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/build.make esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/build.make esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=33 "Built target __idf_esp_eth"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=34 "Built target __idf_esp_eth"
 .PHONY : esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 32
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 35
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/rule
@@ -3438,12 +3394,12 @@ esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/clean:
 esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/all: esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/build.make esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/build.make esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_tcpip_adapter"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=82 "Built target __idf_tcpip_adapter"
 .PHONY : esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 34
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/rule
@@ -3465,12 +3421,12 @@ esp-idf/tcpip_adapter/CMakeFiles/__idf_tcpip_adapter.dir/clean:
 esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all: esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/build.make esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/build.make esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=38 "Built target __idf_esp_netif"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=39 "Built target __idf_esp_netif"
 .PHONY : esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 31
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 33
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/rule
@@ -3492,12 +3448,12 @@ esp-idf/esp_netif/CMakeFiles/__idf_esp_netif.dir/clean:
 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all: esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/build.make esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/build.make esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=34 "Built target __idf_esp_event"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=35 "Built target __idf_esp_event"
 .PHONY : esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 30
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 32
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/rule
@@ -3519,12 +3475,12 @@ esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/clean:
 esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all: esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/build.make esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/build.make esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=85,86,87,88,89,90,91 "Built target __idf_wpa_supplicant"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=85,86,87,88,89,90 "Built target __idf_wpa_supplicant"
 .PHONY : esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 29
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 31
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/rule
@@ -3546,12 +3502,12 @@ esp-idf/wpa_supplicant/CMakeFiles/__idf_wpa_supplicant.dir/clean:
 esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all: esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build.make esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=41 "Built target __idf_esp_wifi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=42 "Built target __idf_esp_wifi"
 .PHONY : esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 22
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/rule
@@ -3573,12 +3529,12 @@ esp-idf/esp_wifi/CMakeFiles/__idf_esp_wifi.dir/clean:
 esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all: esp-idf/log/CMakeFiles/__idf_log.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/lwip/CMakeFiles/__idf_lwip.dir/build.make esp-idf/lwip/CMakeFiles/__idf_lwip.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/lwip/CMakeFiles/__idf_lwip.dir/build.make esp-idf/lwip/CMakeFiles/__idf_lwip.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=60,61,62,63,64,65,66 "Built target __idf_lwip"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=62,63,64,65,66,67,68 "Built target __idf_lwip"
 .PHONY : esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/lwip/CMakeFiles/__idf_lwip.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 24
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/lwip/CMakeFiles/__idf_lwip.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/lwip/CMakeFiles/__idf_lwip.dir/rule
@@ -3605,7 +3561,7 @@ esp-idf/log/CMakeFiles/__idf_log.dir/all: esp-idf/heap/CMakeFiles/__idf_heap.dir
 
 # Build rule for subdir invocation for target.
 esp-idf/log/CMakeFiles/__idf_log.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/log/CMakeFiles/__idf_log.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/log/CMakeFiles/__idf_log.dir/rule
@@ -3632,7 +3588,7 @@ esp-idf/heap/CMakeFiles/__idf_heap.dir/all: esp-idf/soc/CMakeFiles/__idf_soc.dir
 
 # Build rule for subdir invocation for target.
 esp-idf/heap/CMakeFiles/__idf_heap.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/heap/CMakeFiles/__idf_heap.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/heap/CMakeFiles/__idf_heap.dir/rule
@@ -3654,12 +3610,12 @@ esp-idf/heap/CMakeFiles/__idf_heap.dir/clean:
 esp-idf/soc/CMakeFiles/__idf_soc.dir/all: esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/soc/CMakeFiles/__idf_soc.dir/build.make esp-idf/soc/CMakeFiles/__idf_soc.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/soc/CMakeFiles/__idf_soc.dir/build.make esp-idf/soc/CMakeFiles/__idf_soc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=76 "Built target __idf_soc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=78,79 "Built target __idf_soc"
 .PHONY : esp-idf/soc/CMakeFiles/__idf_soc.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/soc/CMakeFiles/__idf_soc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 17
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/soc/CMakeFiles/__idf_soc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/soc/CMakeFiles/__idf_soc.dir/rule
@@ -3681,12 +3637,12 @@ esp-idf/soc/CMakeFiles/__idf_soc.dir/clean:
 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all: esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/build.make esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/build.make esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_esp_hw_support"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=38 "Built target __idf_esp_hw_support"
 .PHONY : esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 15
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rule
@@ -3713,7 +3669,7 @@ esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all: esp-idf/driver/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/rule
@@ -3735,12 +3691,12 @@ esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/clean:
 esp-idf/driver/CMakeFiles/__idf_driver.dir/all: esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/driver/CMakeFiles/__idf_driver.dir/build.make esp-idf/driver/CMakeFiles/__idf_driver.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/driver/CMakeFiles/__idf_driver.dir/build.make esp-idf/driver/CMakeFiles/__idf_driver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=29,30 "Built target __idf_driver"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=29,30,31 "Built target __idf_driver"
 .PHONY : esp-idf/driver/CMakeFiles/__idf_driver.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/driver/CMakeFiles/__idf_driver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/driver/CMakeFiles/__idf_driver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/driver/CMakeFiles/__idf_driver.dir/rule
@@ -3762,7 +3718,7 @@ esp-idf/driver/CMakeFiles/__idf_driver.dir/clean:
 esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all: esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/build.make esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/build.make esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_xtensa"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=91 "Built target __idf_xtensa"
 .PHONY : esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3789,12 +3745,12 @@ esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/clean:
 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all: esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/build.make esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/build.make esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_espcoredump"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=43 "Built target __idf_espcoredump"
 .PHONY : esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/espcoredump/CMakeFiles/__idf_espcoredump.dir/rule
@@ -3821,7 +3777,7 @@ esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/all: esp-idf/esp32/CMakeFiles/__idf
 
 # Build rule for subdir invocation for target.
 esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/rule
@@ -3896,8 +3852,6 @@ esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/wifi_p
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/all
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
-esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all
-esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/build.make esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/build.make esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/build
@@ -3928,12 +3882,12 @@ esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/clean:
 esp-idf/esp32/CMakeFiles/__idf_esp32.dir/all: esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp32/CMakeFiles/__idf_esp32.dir/build.make esp-idf/esp32/CMakeFiles/__idf_esp32.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp32/CMakeFiles/__idf_esp32.dir/build.make esp-idf/esp32/CMakeFiles/__idf_esp32.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=32 "Built target __idf_esp32"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=33 "Built target __idf_esp32"
 .PHONY : esp-idf/esp32/CMakeFiles/__idf_esp32.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp32/CMakeFiles/__idf_esp32.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 11
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp32/CMakeFiles/__idf_esp32.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp32/CMakeFiles/__idf_esp32.dir/rule
@@ -3960,7 +3914,7 @@ esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all: esp-idf/esp_timer/CMakeF
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/rule
@@ -3987,7 +3941,7 @@ esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all: esp-idf/freertos/CMakeFile
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/rule
@@ -4009,12 +3963,12 @@ esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/clean:
 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all: esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/freertos/CMakeFiles/__idf_freertos.dir/build.make esp-idf/freertos/CMakeFiles/__idf_freertos.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/freertos/CMakeFiles/__idf_freertos.dir/build.make esp-idf/freertos/CMakeFiles/__idf_freertos.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=47 "Built target __idf_freertos"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=48,49 "Built target __idf_freertos"
 .PHONY : esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/freertos/CMakeFiles/__idf_freertos.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/freertos/CMakeFiles/__idf_freertos.dir/rule
@@ -4036,12 +3990,12 @@ esp-idf/freertos/CMakeFiles/__idf_freertos.dir/clean:
 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all: esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/newlib/CMakeFiles/__idf_newlib.dir/build.make esp-idf/newlib/CMakeFiles/__idf_newlib.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/newlib/CMakeFiles/__idf_newlib.dir/build.make esp-idf/newlib/CMakeFiles/__idf_newlib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=69 "Built target __idf_newlib"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=71 "Built target __idf_newlib"
 .PHONY : esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/newlib/CMakeFiles/__idf_newlib.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/newlib/CMakeFiles/__idf_newlib.dir/rule
@@ -4063,12 +4017,12 @@ esp-idf/newlib/CMakeFiles/__idf_newlib.dir/clean:
 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all: esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/cxx/CMakeFiles/__idf_cxx.dir/build.make esp-idf/cxx/CMakeFiles/__idf_cxx.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/cxx/CMakeFiles/__idf_cxx.dir/build.make esp-idf/cxx/CMakeFiles/__idf_cxx.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=28 "Built target __idf_cxx"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_cxx"
 .PHONY : esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/cxx/CMakeFiles/__idf_cxx.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/cxx/CMakeFiles/__idf_cxx.dir/rule
@@ -4090,12 +4044,12 @@ esp-idf/cxx/CMakeFiles/__idf_cxx.dir/clean:
 esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all: esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/build.make esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/build.make esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_app_trace"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=1 "Built target __idf_app_trace"
 .PHONY : esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 5
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/rule
@@ -4122,7 +4076,7 @@ esp-idf/asio/CMakeFiles/__idf_asio.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_
 
 # Build rule for subdir invocation for target.
 esp-idf/asio/CMakeFiles/__idf_asio.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 53
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/asio/CMakeFiles/__idf_asio.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/asio/CMakeFiles/__idf_asio.dir/rule
@@ -4176,7 +4130,7 @@ esp-idf/bootloader/CMakeFiles/bootloader-flash.dir/all: CMakeFiles/bootloader.di
 
 # Build rule for subdir invocation for target.
 esp-idf/bootloader/CMakeFiles/bootloader-flash.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/bootloader/CMakeFiles/bootloader-flash.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/bootloader/CMakeFiles/bootloader-flash.dir/rule
@@ -4203,7 +4157,7 @@ esp-idf/bt/CMakeFiles/__idf_bt.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.d
 
 # Build rule for subdir invocation for target.
 esp-idf/bt/CMakeFiles/__idf_bt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 68
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 71
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/bt/CMakeFiles/__idf_bt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/bt/CMakeFiles/__idf_bt.dir/rule
@@ -4225,12 +4179,12 @@ esp-idf/bt/CMakeFiles/__idf_bt.dir/clean:
 esp-idf/cbor/CMakeFiles/__idf_cbor.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/cbor/CMakeFiles/__idf_cbor.dir/build.make esp-idf/cbor/CMakeFiles/__idf_cbor.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/cbor/CMakeFiles/__idf_cbor.dir/build.make esp-idf/cbor/CMakeFiles/__idf_cbor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_cbor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=26 "Built target __idf_cbor"
 .PHONY : esp-idf/cbor/CMakeFiles/__idf_cbor.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/cbor/CMakeFiles/__idf_cbor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 53
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/cbor/CMakeFiles/__idf_cbor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/cbor/CMakeFiles/__idf_cbor.dir/rule
@@ -4252,12 +4206,12 @@ esp-idf/cbor/CMakeFiles/__idf_cbor.dir/clean:
 esp-idf/unity/CMakeFiles/__idf_unity.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/unity/CMakeFiles/__idf_unity.dir/build.make esp-idf/unity/CMakeFiles/__idf_unity.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/unity/CMakeFiles/__idf_unity.dir/build.make esp-idf/unity/CMakeFiles/__idf_unity.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=83 "Built target __idf_unity"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_unity"
 .PHONY : esp-idf/unity/CMakeFiles/__idf_unity.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/unity/CMakeFiles/__idf_unity.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/unity/CMakeFiles/__idf_unity.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/unity/CMakeFiles/__idf_unity.dir/rule
@@ -4285,7 +4239,7 @@ esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all: esp-idf/unity/CMakeFiles/__idf_uni
 
 # Build rule for subdir invocation for target.
 esp-idf/cmock/CMakeFiles/__idf_cmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/cmock/CMakeFiles/__idf_cmock.dir/rule
@@ -4307,12 +4261,12 @@ esp-idf/cmock/CMakeFiles/__idf_cmock.dir/clean:
 esp-idf/coap/CMakeFiles/__idf_coap.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/coap/CMakeFiles/__idf_coap.dir/build.make esp-idf/coap/CMakeFiles/__idf_coap.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/coap/CMakeFiles/__idf_coap.dir/build.make esp-idf/coap/CMakeFiles/__idf_coap.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=26,27 "Built target __idf_coap"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=27,28 "Built target __idf_coap"
 .PHONY : esp-idf/coap/CMakeFiles/__idf_coap.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/coap/CMakeFiles/__idf_coap.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 51
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 54
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/coap/CMakeFiles/__idf_coap.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/coap/CMakeFiles/__idf_coap.dir/rule
@@ -4339,7 +4293,7 @@ esp-idf/console/CMakeFiles/__idf_console.dir/all: esp-idf/esp_pm/CMakeFiles/__id
 
 # Build rule for subdir invocation for target.
 esp-idf/console/CMakeFiles/__idf_console.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/console/CMakeFiles/__idf_console.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/console/CMakeFiles/__idf_console.dir/rule
@@ -4361,12 +4315,12 @@ esp-idf/console/CMakeFiles/__idf_console.dir/clean:
 esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/all: esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/build.make esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/build.make esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=70,71 "Built target __idf_nghttp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=72,73 "Built target __idf_nghttp"
 .PHONY : esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/rule
@@ -4388,12 +4342,12 @@ esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/clean:
 esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all: esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/build.make esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/build.make esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=31 "Built target __idf_esp-tls"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=32 "Built target __idf_esp-tls"
 .PHONY : esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/rule
@@ -4420,7 +4374,7 @@ esp-idf/esp_adc_cal/CMakeFiles/__idf_esp_adc_cal.dir/all: esp-idf/esp_pm/CMakeFi
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_adc_cal/CMakeFiles/__idf_esp_adc_cal.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_adc_cal/CMakeFiles/__idf_esp_adc_cal.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_adc_cal/CMakeFiles/__idf_esp_adc_cal.dir/rule
@@ -4443,12 +4397,12 @@ esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all: esp-idf/esp_pm/CMakeFiles/__id
 esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build.make esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=35 "Built target __idf_esp_hid"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=36 "Built target __idf_esp_hid"
 .PHONY : esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 69
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 72
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/rule
@@ -4470,12 +4424,12 @@ esp-idf/esp_hid/CMakeFiles/__idf_esp_hid.dir/clean:
 esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all: esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/build.make esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/build.make esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=79 "Built target __idf_tcp_transport"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_tcp_transport"
 .PHONY : esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/rule
@@ -4502,7 +4456,7 @@ esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/all: esp-idf/esp_ht
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/rule
@@ -4524,12 +4478,12 @@ esp-idf/esp_http_client/CMakeFiles/__idf_esp_http_client.dir/clean:
 esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/all: esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/build.make esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/build.make esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_esp_http_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=37 "Built target __idf_esp_http_server"
 .PHONY : esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 1
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/rule
@@ -4551,12 +4505,12 @@ esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/clean:
 esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/all: esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/build.make esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/build.make esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=36 "Built target __idf_esp_https_ota"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_esp_https_ota"
 .PHONY : esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/rule
@@ -4578,12 +4532,12 @@ esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/clean:
 esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/build.make esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/build.make esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_protobuf-c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=76 "Built target __idf_protobuf-c"
 .PHONY : esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 53
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/rule
@@ -4608,12 +4562,12 @@ esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all: esp-idf/console/CMakeFiles
 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all: esp-idf/protobuf-c/CMakeFiles/__idf_protobuf-c.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build.make esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build.make esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=74 "Built target __idf_protocomm"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_protocomm"
 .PHONY : esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 69
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 72
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/protocomm/CMakeFiles/__idf_protocomm.dir/rule
@@ -4641,7 +4595,7 @@ esp-idf/mdns/CMakeFiles/__idf_mdns.dir/all: esp-idf/console/CMakeFiles/__idf_con
 
 # Build rule for subdir invocation for target.
 esp-idf/mdns/CMakeFiles/__idf_mdns.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mdns/CMakeFiles/__idf_mdns.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/mdns/CMakeFiles/__idf_mdns.dir/rule
@@ -4673,7 +4627,7 @@ esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all: esp-idf/mdns/CMa
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 69
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 72
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/rule
@@ -4695,12 +4649,12 @@ esp-idf/esp_local_ctrl/CMakeFiles/__idf_esp_local_ctrl.dir/clean:
 esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all: esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/build.make esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/build.make esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=75 "Built target __idf_sdmmc"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_sdmmc"
 .PHONY : esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/rule
@@ -4722,12 +4676,12 @@ esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/clean:
 esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/all: esp-idf/ulp/CMakeFiles/__idf_ulp.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/build.make esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/build.make esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=39 "Built target __idf_esp_serial_slave_link"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_esp_serial_slave_link"
 .PHONY : esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/rule
@@ -4754,7 +4708,7 @@ esp-idf/esp_websocket_client/CMakeFiles/__idf_esp_websocket_client.dir/all: esp-
 
 # Build rule for subdir invocation for target.
 esp-idf/esp_websocket_client/CMakeFiles/__idf_esp_websocket_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/esp_websocket_client/CMakeFiles/__idf_esp_websocket_client.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/esp_websocket_client/CMakeFiles/__idf_esp_websocket_client.dir/rule
@@ -4830,12 +4784,12 @@ esp-idf/esptool_py/CMakeFiles/app-flash.dir/clean:
 esp-idf/expat/CMakeFiles/__idf_expat.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/expat/CMakeFiles/__idf_expat.dir/build.make esp-idf/expat/CMakeFiles/__idf_expat.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/expat/CMakeFiles/__idf_expat.dir/build.make esp-idf/expat/CMakeFiles/__idf_expat.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=42 "Built target __idf_expat"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_expat"
 .PHONY : esp-idf/expat/CMakeFiles/__idf_expat.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/expat/CMakeFiles/__idf_expat.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/expat/CMakeFiles/__idf_expat.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/expat/CMakeFiles/__idf_expat.dir/rule
@@ -4857,12 +4811,12 @@ esp-idf/expat/CMakeFiles/__idf_expat.dir/clean:
 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/build.make esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/build.make esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=84 "Built target __idf_wear_levelling"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=83 "Built target __idf_wear_levelling"
 .PHONY : esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 53
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/rule
@@ -4885,12 +4839,12 @@ esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_es
 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all: esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/build.make esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/build.make esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=43 "Built target __idf_fatfs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=44 "Built target __idf_fatfs"
 .PHONY : esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 51
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 54
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/rule
@@ -4912,12 +4866,12 @@ esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/clean:
 esp-idf/freemodbus/CMakeFiles/__idf_freemodbus.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/freemodbus/CMakeFiles/__idf_freemodbus.dir/build.make esp-idf/freemodbus/CMakeFiles/__idf_freemodbus.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/freemodbus/CMakeFiles/__idf_freemodbus.dir/build.make esp-idf/freemodbus/CMakeFiles/__idf_freemodbus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=44,45,46 "Built target __idf_freemodbus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=45,46,47 "Built target __idf_freemodbus"
 .PHONY : esp-idf/freemodbus/CMakeFiles/__idf_freemodbus.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/freemodbus/CMakeFiles/__idf_freemodbus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 55
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/freemodbus/CMakeFiles/__idf_freemodbus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/freemodbus/CMakeFiles/__idf_freemodbus.dir/rule
@@ -4944,7 +4898,7 @@ esp-idf/jsmn/CMakeFiles/__idf_jsmn.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_
 
 # Build rule for subdir invocation for target.
 esp-idf/jsmn/CMakeFiles/__idf_jsmn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/jsmn/CMakeFiles/__idf_jsmn.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/jsmn/CMakeFiles/__idf_jsmn.dir/rule
@@ -4966,12 +4920,12 @@ esp-idf/jsmn/CMakeFiles/__idf_jsmn.dir/clean:
 esp-idf/json/CMakeFiles/__idf_json.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/json/CMakeFiles/__idf_json.dir/build.make esp-idf/json/CMakeFiles/__idf_json.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/json/CMakeFiles/__idf_json.dir/build.make esp-idf/json/CMakeFiles/__idf_json.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=51 "Built target __idf_json"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_json"
 .PHONY : esp-idf/json/CMakeFiles/__idf_json.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/json/CMakeFiles/__idf_json.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/json/CMakeFiles/__idf_json.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/json/CMakeFiles/__idf_json.dir/rule
@@ -4993,12 +4947,12 @@ esp-idf/json/CMakeFiles/__idf_json.dir/clean:
 esp-idf/libsodium/CMakeFiles/__idf_libsodium.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/libsodium/CMakeFiles/__idf_libsodium.dir/build.make esp-idf/libsodium/CMakeFiles/__idf_libsodium.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/libsodium/CMakeFiles/__idf_libsodium.dir/build.make esp-idf/libsodium/CMakeFiles/__idf_libsodium.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=52,53,54,55,56,57,58,59 "Built target __idf_libsodium"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=53,54,55,56,57,58,59,60,61 "Built target __idf_libsodium"
 .PHONY : esp-idf/libsodium/CMakeFiles/__idf_libsodium.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/libsodium/CMakeFiles/__idf_libsodium.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 57
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 61
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/libsodium/CMakeFiles/__idf_libsodium.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/libsodium/CMakeFiles/__idf_libsodium.dir/rule
@@ -5025,7 +4979,7 @@ esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_
 
 # Build rule for subdir invocation for target.
 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/rule
@@ -5047,12 +5001,12 @@ esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/clean:
 esp-idf/openssl/CMakeFiles/__idf_openssl.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/openssl/CMakeFiles/__idf_openssl.dir/build.make esp-idf/openssl/CMakeFiles/__idf_openssl.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/openssl/CMakeFiles/__idf_openssl.dir/build.make esp-idf/openssl/CMakeFiles/__idf_openssl.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=73 "Built target __idf_openssl"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=75 "Built target __idf_openssl"
 .PHONY : esp-idf/openssl/CMakeFiles/__idf_openssl.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/openssl/CMakeFiles/__idf_openssl.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 50
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 53
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/openssl/CMakeFiles/__idf_openssl.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/openssl/CMakeFiles/__idf_openssl.dir/rule
@@ -5074,12 +5028,12 @@ esp-idf/openssl/CMakeFiles/__idf_openssl.dir/clean:
 esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/build.make esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/build.make esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_spiffs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=81 "Built target __idf_spiffs"
 .PHONY : esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 53
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/rule
@@ -5135,12 +5089,12 @@ esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/md
 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all: esp-idf/json/CMakeFiles/__idf_json.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build.make esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_wifi_provisioning"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=84 "Built target __idf_wifi_provisioning"
 .PHONY : esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all
 
 # Build rule for subdir invocation for target.
 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 70
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 73
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/rule
@@ -5167,7 +5121,7 @@ esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-id
 
 # Build rule for subdir invocation for target.
 esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/rule
@@ -5194,7 +5148,7 @@ esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_
 
 # Build rule for subdir invocation for target.
 esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 49
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/rule
@@ -5227,7 +5181,7 @@ esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/spiffs/CMa
 
 # Build rule for subdir invocation for target.
 esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 73
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 77
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/rule
@@ -5241,75 +5195,6 @@ __idf_arduino-esp32: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/ru
 esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/clean:
 	$(MAKE) $(MAKESILENT) -f esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build.make esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/clean
 .PHONY : esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/clean
-
-#=============================================================================
-# Target rules for target esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir
-
-# All Build rule for target.
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all: esp-idf/mdns/CMakeFiles/__idf_mdns.dir/all
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all: esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all: esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all: esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/all
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
-	$(MAKE) $(MAKESILENT) -f esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/build.make esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/depend
-	$(MAKE) $(MAKESILENT) -f esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/build.make esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=1 "Built target __idf_MPUdriver"
-.PHONY : esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all
-
-# Build rule for subdir invocation for target.
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 74
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
-.PHONY : esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/rule
-
-# Convenience name for target.
-__idf_MPUdriver: esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/rule
-
-.PHONY : __idf_MPUdriver
-
-# clean rule for target.
-esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/clean:
-	$(MAKE) $(MAKESILENT) -f esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/build.make esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/clean
-.PHONY : esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/clean
-
-#=============================================================================
-# Target rules for target esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir
-
-# All Build rule for target.
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all: esp-idf/mdns/CMakeFiles/__idf_mdns.dir/all
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all: esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all: esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
-	$(MAKE) $(MAKESILENT) -f esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/build.make esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/depend
-	$(MAKE) $(MAKESILENT) -f esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/build.make esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=80,81,82 "Built target __idf_ucglib"
-.PHONY : esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all
-
-# Build rule for subdir invocation for target.
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 76
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
-.PHONY : esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/rule
-
-# Convenience name for target.
-__idf_ucglib: esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/rule
-
-.PHONY : __idf_ucglib
-
-# clean rule for target.
-esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/clean:
-	$(MAKE) $(MAKESILENT) -f esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/build.make esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/clean
-.PHONY : esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/clean
 
 #=============================================================================
 # Target rules for target esp-idf/main/CMakeFiles/__idf_main.dir
@@ -5326,11 +5211,9 @@ esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spif
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=67 "Built target __idf_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=69 "Built target __idf_main"
 .PHONY : esp-idf/main/CMakeFiles/__idf_main.dir/all
 
 # Build rule for subdir invocation for target.

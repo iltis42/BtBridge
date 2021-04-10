@@ -16,9 +16,7 @@ double Flarm::gndCourse = 0;
 bool Flarm::gpsOK = true;
 char Flarm::ID[8] = "";
 int Flarm::bincom = 0;
-Ucglib_ILI9341_18x240x320_HWSPI* Flarm::ucg;
 
-extern xSemaphoreHandle spiMutex;
 
 /* PFLAU,<RX>,<TX>,<GPS>,<Power>,<AlarmLevel>,<RelativeBearing>,<AlarmType>,<RelativeVertical>,<RelativeDistance>,<ID>
 		$PFLAU,3,1,2,1,2,-30,2,-32,755*FLARM is working properly and currently receives 3 other aircraft.

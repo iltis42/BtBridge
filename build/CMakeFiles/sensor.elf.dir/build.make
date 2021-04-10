@@ -176,8 +176,6 @@ sensor.elf: esp-idf/wifi_provisioning/libwifi_provisioning.a
 sensor.elf: esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a
 sensor.elf: esp-idf/I2Cbus/libI2Cbus.a
 sensor.elf: esp-idf/arduino-esp32/libarduino-esp32.a
-sensor.elf: esp-idf/MPUdriver/libMPUdriver.a
-sensor.elf: esp-idf/ucglib/libucglib.a
 sensor.elf: esp-idf/main/libmain.a
 sensor.elf: esp-idf/unity/libunity.a
 sensor.elf: esp-idf/protocomm/libprotocomm.a
@@ -185,9 +183,7 @@ sensor.elf: esp-idf/protobuf-c/libprotobuf-c.a
 sensor.elf: esp-idf/json/libjson.a
 sensor.elf: esp-idf/esp_adc_cal/libesp_adc_cal.a
 sensor.elf: esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a
-sensor.elf: esp-idf/MPUdriver/libMPUdriver.a
 sensor.elf: esp-idf/I2Cbus/libI2Cbus.a
-sensor.elf: esp-idf/ucglib/libucglib.a
 sensor.elf: esp-idf/arduino-esp32/libarduino-esp32.a
 sensor.elf: esp-idf/bt/libbt.a
 sensor.elf: esp-idf/mdns/libmdns.a

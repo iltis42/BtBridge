@@ -1671,32 +1671,6 @@ __idf_arduino-esp32/fast:
 .PHONY : __idf_arduino-esp32/fast
 
 #=============================================================================
-# Target rules for targets named __idf_MPUdriver
-
-# Build rule for target.
-__idf_MPUdriver: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_MPUdriver
-.PHONY : __idf_MPUdriver
-
-# fast build rule for target.
-__idf_MPUdriver/fast:
-	$(MAKE) $(MAKESILENT) -f esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/build.make esp-idf/MPUdriver/CMakeFiles/__idf_MPUdriver.dir/build
-.PHONY : __idf_MPUdriver/fast
-
-#=============================================================================
-# Target rules for targets named __idf_ucglib
-
-# Build rule for target.
-__idf_ucglib: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_ucglib
-.PHONY : __idf_ucglib
-
-# fast build rule for target.
-__idf_ucglib/fast:
-	$(MAKE) $(MAKESILENT) -f esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/build.make esp-idf/ucglib/CMakeFiles/__idf_ucglib.dir/build
-.PHONY : __idf_ucglib/fast
-
-#=============================================================================
 # Target rules for targets named __idf_main
 
 # Build rule for target.
@@ -1787,7 +1761,6 @@ help:
 	@echo "... uf2-app"
 	@echo "... __idf_ESP32-OTA-Webserver"
 	@echo "... __idf_I2Cbus"
-	@echo "... __idf_MPUdriver"
 	@echo "... __idf_app_trace"
 	@echo "... __idf_app_update"
 	@echo "... __idf_arduino-esp32"
@@ -1854,7 +1827,6 @@ help:
 	@echo "... __idf_spiffs"
 	@echo "... __idf_tcp_transport"
 	@echo "... __idf_tcpip_adapter"
-	@echo "... __idf_ucglib"
 	@echo "... __idf_ulp"
 	@echo "... __idf_unity"
 	@echo "... __idf_vfs"

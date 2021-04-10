@@ -13,9 +13,6 @@
 #include "math.h"
 #include <logdef.h>
 
-#include "MPU.hpp"        // main file, provides the class itself
-#include "mpu/math.hpp"   // math helper for dealing with MPU data
-#include "mpu/types.hpp"  // MPU data types and definitions
 #include "Router.h"
 #include "Flarm.h"
 

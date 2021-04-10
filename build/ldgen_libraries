@@ -72,6 +72,4 @@
 /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a
 /home/gittest2/BtBridge/build/esp-idf/I2Cbus/libI2Cbus.a
 /home/gittest2/BtBridge/build/esp-idf/arduino-esp32/libarduino-esp32.a
-/home/gittest2/BtBridge/build/esp-idf/MPUdriver/libMPUdriver.a
-/home/gittest2/BtBridge/build/esp-idf/ucglib/libucglib.a
 /home/gittest2/BtBridge/build/esp-idf/main/libmain.a
