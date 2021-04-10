@@ -2,14 +2,15 @@
  * Version.cpp
  *
  *  Created on: Feb 10, 2019
- *      Author: iltis
+ *      Author: iltis 
  */
 
 #include "Version.h"
 #include <stdio.h>
 #include <string.h>
+#include <logdef.h>
 
-char Version::_version[12];
+char Version::_version[32];
 
 Version::Version() {
 	const char data[]=__DATE__;
@@ -21,7 +22,7 @@ Version::Version() {
 	sscanf(tempo, "%d:%d:%d", &hora, &min, &seg);
 	mes=(strstr(nomes, omes)-nomes)/3+1;
 
-	sprintf(_version,"%02d.%02d%02d", ano%100, mes, dia );
+	sprintf(_version,"%02d.%02d%02d-%02d", ano%100, mes, dia, hora );
 }
 
 Version::~Version() {

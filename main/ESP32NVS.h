@@ -31,6 +31,7 @@ public:
   }
   bool    begin();
   void    close();
+  bool    open();
 
   bool    eraseAll();
   bool    erase(std::string key);
@@ -57,12 +58,12 @@ public:
 //  double  getDouble(std::string key);
 
 private:
-  nvs_handle  _nvs_handle;
+  nvs_handle_t  _nvs_handle;
   esp_err_t   _err;
   static ESP32NVS * Instance;
 
   bool        commit();
-  nvs_handle  get_nvs_handle();
+  nvs_handle_t  get_nvs_handle();
 };
 
 

@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/home/gittest2/BtBridge/build/CMakeFiles/bootloader"
+		},
+		{
+			"file" : "/home/gittest2/BtBridge/build/CMakeFiles/bootloader.rule"
+		},
+		{
+			"file" : "/home/gittest2/BtBridge/build/CMakeFiles/bootloader-complete.rule"
+		},
+		{
+			"file" : "/home/gittest2/BtBridge/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+		},
+		{
+			"file" : "/home/gittest2/BtBridge/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+		},
+		{
+			"file" : "/home/gittest2/BtBridge/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+		},
+		{
+			"file" : "/home/gittest2/BtBridge/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+		},
+		{
+			"file" : "/home/gittest2/BtBridge/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+		},
+		{
+			"file" : "/home/gittest2/BtBridge/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+		},
+		{
+			"file" : "/home/gittest2/BtBridge/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"bootloader"
+		],
+		"name" : "bootloader"
+	}
+}

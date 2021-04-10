@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gittest2/BtBridge/build/favicon.ico.S
+
+/home/gittest2/BtBridge/build/index.html.S
+
+/home/gittest2/BtBridge/build/jquery-3.4.1.min.js.S
+

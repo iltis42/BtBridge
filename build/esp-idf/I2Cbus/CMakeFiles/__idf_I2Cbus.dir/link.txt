@@ -1,0 +1,2 @@
+/home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ar qc libI2Cbus.a CMakeFiles/__idf_I2Cbus.dir/src/I2Cbus.cpp.obj
+/home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-ranlib libI2Cbus.a

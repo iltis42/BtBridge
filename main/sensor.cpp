@@ -1,110 +1,96 @@
-#include <btstack.h> 
-
-#include <esp_log.h>
 #include <string>
 #include "sdkconfig.h"
 #include <stdio.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "esp_task_wdt.h"
-
-
+#include "string.h"
+#include "esp_system.h"
+#include "nvs_flash.h"
+#include <driver/adc.h>
+#include <driver/gpio.h>
 #include "ESP32NVS.h"
 #include "BTSender.h"
 #include "Setup.h"
 #include "esp_sleep.h"
 #include <esp_wifi.h>
+#include "AnalogInput.h"
 #include "sensor.h"
 #include "Version.h"
 
-#include "driver/uart.h"
-#include "soc/uart_struct.h"
+#include <SPI.h>
+#include <OTA.h>
+#include "SetupNG.h"
+#include <logdef.h>
+#include "Switch.h"
+
+#include "I2Cbus.hpp"
+#include "WifiApp.h"
+#include "WifiClient.h"
+#include "Serial.h"
+#include <esp32/rom/miniz.h>
+#include "esp32-hal-adc.h" // needed for adc pin reset
+#include "soc/sens_reg.h" // needed for adc pin reset
 
 
+OTA *ota = 0;
+BTSender btsender;
+static int ttick = 0;
 
-
-static uint8_t* data;
-bool  enableBtTx=true;
-static const uart_port_t uart_num = UART_NUM_0;
-
-xSemaphoreHandle xMutex=NULL;
-Setup setup;
-TaskHandle_t *bpid;
-TaskHandle_t *spid;
-
-#define BUF_SIZE 2048
-
-
-void handleRfcommRx( char * rx, uint16_t len ){
-	printf("RFCOMM packet, %s, len %d %d\n", rx, len, strlen( rx ));
-	int l = uart_write_bytes(uart_num, (const char*) rx, len);
-	if( l < 0) {
-		printf("Error sending BT -> serial TX %s %d\n", rx, len);
-	}
-}
-
-BTSender btsender( handleRfcommRx  );
-
-
-void readData(void *pvParameters){
-	while (1) {
-		int len = uart_read_bytes(uart_num, data, 10, 200 / portTICK_RATE_MS);
-		if( len > 0 ) {
-//			printf( "UART RX: %d %s\n", len, (char *)data);
-			btsender.send( (char *)data, len );
-		}
-		esp_task_wdt_reset();
-	}
-}
-
-
-#define UART0_TXD  (1)
-#define UART0_RXD  (3)
-
-
-
-
+// Sensor board init method. Herein all functions that make the XCVario are launched and tested.
 void sensor(void *args){
 	esp_wifi_set_mode(WIFI_MODE_NULL);
-	esp_log_level_set("*", ESP_LOG_INFO);
+	// esp_log_level_set("*", ESP_LOG_INFO);
+	ESP_LOGI( FNAME, "Log level set globally to INFO %d",  ESP_LOG_INFO);
+	esp_chip_info_t chip_info;
+	esp_chip_info(&chip_info);
+	ESP_LOGI( FNAME,"This is ESP32 chip with %d CPU cores, WiFi%s%s, ",
+			chip_info.cores,
+			(chip_info.features & CHIP_FEATURE_BT) ? "/BT" : "",
+					(chip_info.features & CHIP_FEATURE_BLE) ? "/BLE" : "");
+	ESP_LOGI( FNAME,"Silicon revision %d, ", chip_info.revision);
+	ESP_LOGI( FNAME,"%dMB %s flash\n", spi_flash_get_chip_size() / (1024 * 1024),
+			(chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
+
 	NVS.begin();
 
-	uart_config_t uart_config = {
-	    .baud_rate = 19200,
-	    .data_bits = UART_DATA_8_BITS,
-	    .parity = UART_PARITY_DISABLE,
-	    .stop_bits = UART_STOP_BITS_1,
-	    .flow_ctrl = UART_HW_FLOWCTRL_DISABLE,
-	    .rx_flow_ctrl_thresh = 0,
-		.use_ref_tick = false
-	};
-	// Configure UART parameters
-	ESP_ERROR_CHECK(uart_param_config(uart_num, &uart_config));
-	uart_set_pin(uart_num, UART0_TXD, UART0_RXD, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE);
-	data = (uint8_t*) malloc(BUF_SIZE);
-	//Install UART driver (we don't need an event queue here)
-	uart_driver_install(uart_num, BUF_SIZE, 0, 0, NULL, 0);
+	bool doUpdate = software_update.get();
+	if( Switch::isClosed() ){
+		doUpdate = true;
+		ESP_LOGI(FNAME,"Rotary pressed: Do Software Update");
+	}
+	if( doUpdate ) {
+		ota = new OTA();
+		ota->begin();
+		ota->doSoftwareUpdate();
+	}
+	String wireless_id;
+	if( blue_enable.get() == WL_BLUETOOTH ) {
+		btsender.begin();
+	}
+	wireless_id += SetupCommon::getID();
+	Serial::begin();
+	Serial::taskStart();
 
-	setup.begin();
-	sleep( 1 );
-
-	xMutex=xSemaphoreCreateMutex();
-	xTaskCreatePinnedToCore(&readData, "readData", 8000, NULL, 6, bpid, 0);
+	if( blue_enable.get() == WL_BLUETOOTH ) {
+		btsender.selfTest();
+	}else if ( blue_enable.get() == WL_WLAN ){
+		wifi_init_softap();
+	}
 	Version myVersion;
-	printf("Program Version %s\n", myVersion.version() );
+	ESP_LOGI(FNAME,"Program Version %s", myVersion.version() );
 
+}
 
-	gpio_set_direction(GPIO_NUM_2, GPIO_MODE_OUTPUT);  // blue LED, maybe use for BT connection
-	hci_power_control(HCI_POWER_ON);
-	printf("BT Sender init, device name: %s\n", setup.getBtName() );
-	btsender.begin( &enableBtTx, setup.getBtName() );
-
-	printf("Free Stack: S:%d \n", uxTaskGetStackHighWaterMark( spid ) );
+extern "C" void  app_main(void){
+	ESP_LOGI(FNAME,"app_main" );
+	ESP_LOGI(FNAME,"Now init all Setup elements");
+	bool setupPresent;
+	SetupCommon::initSetup( setupPresent );
+	esp_log_level_set("*", ESP_LOG_INFO);
+	sensor( 0 );
 	vTaskDelete( NULL );
-
 }
 
-extern "C" int btstack_main(int argc, const char * argv[]){
-	xTaskCreatePinnedToCore(&sensor, "sensor", 8000, NULL, 5, spid, 0);
-	return 0;
-}
+
+
