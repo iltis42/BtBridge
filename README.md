@@ -1,8 +1,7 @@
 # BtBridge
 Software for ESP32 based Bluetooth and WiFi Bridge
 
-![Vario]( https://raw.githubusercontent.com/iltis42/XCVario/master/images/Vario3D/vario-perspectiv.png )
-![Vario Back]( https://github.com/iltis42/XCVario/blob/master/images/Vario3D/backviev-xcv-21.png )
+![BTBridge]( https://raw.githubusercontent.com/iltis42/BtBridge/hardware/BTBridge.jpg )
 
 The project is dedicated to my Open Source Bluetooth Bridge which allows serial avionic devices like Flarm, Radio's, and more to connect with a Wifi- oder Bluetooth capable Navi.
 
