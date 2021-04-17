@@ -36,6 +36,7 @@ SetupNG<int>  			rot_default( "ROTARY_DEFAULT", 0 );
 SetupNG<int>  			serial1_speed( "SERIAL1_SPEED", 3 );   // tag will stay SERIAL2 from historical reason
 SetupNG<int>  			serial1_rxloop( "SERIAL1_RXLOOP", 0 );
 SetupNG<int>  			serial1_tx( "SERIAL1_TX", 2 );      // Just BT device = XCSoar to control FLARM
+SetupNG<int>  			serial1_pins_twisted( "SERIAL1_PINS", 0 );
 SetupNG<int>  			serial1_tx_inverted( "SERIAL1_TX_INV", RS232_INVERTED );
 SetupNG<int>  			serial1_rx_inverted( "SERIAL1_RX_INV", RS232_INVERTED );
 SetupNG<int>  			serial1_tx_enable( "SER1_TX_ENA", 1 );
