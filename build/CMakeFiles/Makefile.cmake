@@ -340,9 +340,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "esp-idf/tinyusb/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/ulp/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/wifi_provisioning/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "esp-idf/arduino-esp32/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/ESP32-OTA-Webserver/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/I2Cbus/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "esp-idf/arduino-esp32/CMakeFiles/CMakeDirectoryInformation.cmake"
   "esp-idf/main/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -460,8 +460,8 @@ set(CMAKE_DEPEND_INFO_FILES
   "esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/DependInfo.cmake"
   "esp-idf/ulp/CMakeFiles/__idf_ulp.dir/DependInfo.cmake"
   "esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/DependInfo.cmake"
+  "esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/DependInfo.cmake"
   "esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/DependInfo.cmake"
   "esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/DependInfo.cmake"
-  "esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/DependInfo.cmake"
   "esp-idf/main/CMakeFiles/__idf_main.dir/DependInfo.cmake"
   )

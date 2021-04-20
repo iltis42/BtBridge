@@ -190,59 +190,59 @@ __idf_ESP32-OTA-Webserver/fast:
 	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build
 .PHONY : __idf_ESP32-OTA-Webserver/fast
 
-MyWiFi.obj: MyWiFi.c.obj
+MyWiFi.obj: MyWiFi.cpp.obj
 
 .PHONY : MyWiFi.obj
 
 # target to build an object file
-MyWiFi.c.obj:
-	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.obj
-.PHONY : MyWiFi.c.obj
+MyWiFi.cpp.obj:
+	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.obj
+.PHONY : MyWiFi.cpp.obj
 
-MyWiFi.i: MyWiFi.c.i
+MyWiFi.i: MyWiFi.cpp.i
 
 .PHONY : MyWiFi.i
 
 # target to preprocess a source file
-MyWiFi.c.i:
-	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.i
-.PHONY : MyWiFi.c.i
+MyWiFi.cpp.i:
+	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.i
+.PHONY : MyWiFi.cpp.i
 
-MyWiFi.s: MyWiFi.c.s
+MyWiFi.s: MyWiFi.cpp.s
 
 .PHONY : MyWiFi.s
 
 # target to generate assembly for a file
-MyWiFi.c.s:
-	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.s
-.PHONY : MyWiFi.c.s
+MyWiFi.cpp.s:
+	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.s
+.PHONY : MyWiFi.cpp.s
 
-OTAServer.obj: OTAServer.c.obj
+OTAServer.obj: OTAServer.cpp.obj
 
 .PHONY : OTAServer.obj
 
 # target to build an object file
-OTAServer.c.obj:
-	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.obj
-.PHONY : OTAServer.c.obj
+OTAServer.cpp.obj:
+	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.obj
+.PHONY : OTAServer.cpp.obj
 
-OTAServer.i: OTAServer.c.i
+OTAServer.i: OTAServer.cpp.i
 
 .PHONY : OTAServer.i
 
 # target to preprocess a source file
-OTAServer.c.i:
-	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.i
-.PHONY : OTAServer.c.i
+OTAServer.cpp.i:
+	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.i
+.PHONY : OTAServer.cpp.i
 
-OTAServer.s: OTAServer.c.s
+OTAServer.s: OTAServer.cpp.s
 
 .PHONY : OTAServer.s
 
 # target to generate assembly for a file
-OTAServer.c.s:
-	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.s
-.PHONY : OTAServer.c.s
+OTAServer.cpp.s:
+	cd /home/gittest2/BtBridge/build && $(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.s
+.PHONY : OTAServer.cpp.s
 
 __/__/favicon.ico.obj: __/__/favicon.ico.S.obj
 

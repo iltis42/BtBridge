@@ -28,14 +28,15 @@
 #include "WifiApp.h"
 #include "WifiClient.h"
 #include "Serial.h"
+#include "Switch.h"
 #include <esp32/rom/miniz.h>
 #include "esp32-hal-adc.h" // needed for adc pin reset
 #include "soc/sens_reg.h" // needed for adc pin reset
-
+#include "driver/gpio.h"
 
 OTA *ota = 0;
 BTSender btsender;
-static int ttick = 0;
+Switch theButton;
 
 // Sensor board init method. Herein all functions that make the XCVario are launched and tested.
 void sensor(void *args){
@@ -53,6 +54,7 @@ void sensor(void *args){
 			(chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
 
 	NVS.begin();
+	theButton.begin(GPIO_NUM_0);  // push Button
 
 	bool doUpdate = software_update.get();
 	if( Switch::isClosed() ){

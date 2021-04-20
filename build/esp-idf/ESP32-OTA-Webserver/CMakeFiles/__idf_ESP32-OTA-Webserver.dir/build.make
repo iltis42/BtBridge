@@ -91,31 +91,31 @@ jquery-3.4.1.min.js.S: ../components/ESP32-OTA-Webserver/WebsiteFiles/jquery-3.4
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating ../../jquery-3.4.1.min.js.S"
 	/home/gittest2/.espressif/python_env/idf4.3_py2.7_env/lib/python2.7/site-packages/cmake/data/bin/cmake -D DATA_FILE=/home/gittest2/BtBridge/components/ESP32-OTA-Webserver/WebsiteFiles/jquery-3.4.1.min.js -D SOURCE_FILE=/home/gittest2/BtBridge/build/jquery-3.4.1.min.js.S -D FILE_TYPE=TEXT -P /home/gittest2/esp/esp-idf/tools/cmake/scripts/data_file_embed_asm.cmake
 
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.obj: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/flags.make
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.obj: ../components/ESP32-OTA-Webserver/MyWiFi.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.obj"
-	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.obj -c /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.c
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.obj: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/flags.make
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.obj: ../components/ESP32-OTA-Webserver/MyWiFi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.obj"
+	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.obj -c /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.cpp
 
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.i"
-	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.c > CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.i
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.i"
+	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.cpp > CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.i
 
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.s"
-	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.c -o CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.s
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.s"
+	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.cpp -o CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.s
 
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.obj: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/flags.make
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.obj: ../components/ESP32-OTA-Webserver/OTAServer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.obj"
-	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.obj -c /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.c
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.obj: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/flags.make
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.obj: ../components/ESP32-OTA-Webserver/OTAServer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.obj"
+	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.obj -c /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.cpp
 
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.i"
-	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.c > CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.i
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.i"
+	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.cpp > CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.i
 
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.s"
-	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.c -o CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.s
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.s"
+	cd /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver && /home/gittest2/.espressif/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.cpp -o CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.s
 
 esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/index.html.S.obj: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/flags.make
 esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/index.html.S.obj: index.html.S
@@ -134,8 +134,8 @@ esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/jquer
 
 # Object files for target __idf_ESP32-OTA-Webserver
 __idf_ESP32__OTA__Webserver_OBJECTS = \
-"CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.obj" \
-"CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.obj" \
+"CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.obj" \
+"CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.obj" \
 "CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/index.html.S.obj" \
 "CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/favicon.ico.S.obj" \
 "CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/jquery-3.4.1.min.js.S.obj"
@@ -143,8 +143,8 @@ __idf_ESP32__OTA__Webserver_OBJECTS = \
 # External object files for target __idf_ESP32-OTA-Webserver
 __idf_ESP32__OTA__Webserver_EXTERNAL_OBJECTS =
 
-esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.obj
-esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.obj
+esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.obj
+esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.obj
 esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/index.html.S.obj
 esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/favicon.ico.S.obj
 esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/jquery-3.4.1.min.js.S.obj

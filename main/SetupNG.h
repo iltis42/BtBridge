@@ -22,7 +22,6 @@ extern "C" {
 #include <esp_log.h>
 #include <string>
 #include "string.h"
-#include "BTSender.h"
 #include <iostream>
 #include <vector>
 #include "logdef.h"

@@ -1,7 +1,7 @@
 # The set of languages for which implicit dependencies are needed:
 set(CMAKE_DEPENDS_LANGUAGES
   "ASM"
-  "C"
+  "CXX"
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_ASM
@@ -14,6 +14,7 @@ set(CMAKE_ASM_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_ASM
   "HAVE_CONFIG_H"
+  "MBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\""
   )
 
 # The include file search paths:
@@ -69,20 +70,49 @@ set(CMAKE_ASM_TARGET_INCLUDE_PATH
   "/home/gittest2/esp/esp-idf/components/esp_http_server/include"
   "/home/gittest2/esp/esp-idf/components/app_update/include"
   "/home/gittest2/esp/esp-idf/components/spi_flash/include"
+  "../components/arduino-esp32/variants/esp32"
+  "../components/arduino-esp32/cores/esp32"
+  "../components/arduino-esp32/libraries/EEPROM/src"
+  "../components/arduino-esp32/libraries/ESP32/src"
+  "../components/arduino-esp32/libraries/FFat/src"
+  "../components/arduino-esp32/libraries/FS/src"
+  "../components/arduino-esp32/libraries/Preferences/src"
+  "../components/arduino-esp32/libraries/SPIFFS/src"
+  "../components/arduino-esp32/libraries/SPI/src"
+  "../components/arduino-esp32/libraries/Ticker/src"
+  "../components/arduino-esp32/libraries/Update/src"
+  "../components/arduino-esp32/libraries/Wire/src"
+  "../components/arduino-esp32/libraries/BluetoothSerial/src"
+  "/home/gittest2/esp/esp-idf/components/mbedtls/port/include"
+  "/home/gittest2/esp/esp-idf/components/mbedtls/mbedtls/include"
+  "/home/gittest2/esp/esp-idf/components/mbedtls/esp_crt_bundle/include"
+  "/home/gittest2/esp/esp-idf/components/mdns/include"
+  "/home/gittest2/esp/esp-idf/components/console"
+  "/home/gittest2/esp/esp-idf/components/bt/include"
+  "/home/gittest2/esp/esp-idf/components/bt/common/osi/include"
+  "/home/gittest2/esp/esp-idf/components/bt/host/bluedroid/api/include/api"
+  "/home/gittest2/esp/esp-idf/components/nvs_flash/include"
+  "/home/gittest2/esp/esp-idf/components/fatfs/diskio"
+  "/home/gittest2/esp/esp-idf/components/fatfs/vfs"
+  "/home/gittest2/esp/esp-idf/components/fatfs/src"
+  "/home/gittest2/esp/esp-idf/components/wear_levelling/include"
+  "/home/gittest2/esp/esp-idf/components/sdmmc/include"
+  "/home/gittest2/esp/esp-idf/components/spiffs/include"
   )
-set(CMAKE_DEPENDS_CHECK_C
-  "/home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.c" "/home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.obj"
-  "/home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.c" "/home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.obj"
+set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.cpp" "/home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.obj"
+  "/home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.cpp" "/home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.obj"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
-set(CMAKE_TARGET_DEFINITIONS_C
+set(CMAKE_TARGET_DEFINITIONS_CXX
   "HAVE_CONFIG_H"
+  "MBEDTLS_CONFIG_FILE=\"mbedtls/esp_config.h\""
   )
 
 # The include file search paths:
-set(CMAKE_C_TARGET_INCLUDE_PATH
+set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "config"
   "../components/ESP32-OTA-Webserver"
   "/home/gittest2/esp/esp-idf/components/newlib/platform_include"
@@ -134,6 +164,34 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/gittest2/esp/esp-idf/components/esp_http_server/include"
   "/home/gittest2/esp/esp-idf/components/app_update/include"
   "/home/gittest2/esp/esp-idf/components/spi_flash/include"
+  "../components/arduino-esp32/variants/esp32"
+  "../components/arduino-esp32/cores/esp32"
+  "../components/arduino-esp32/libraries/EEPROM/src"
+  "../components/arduino-esp32/libraries/ESP32/src"
+  "../components/arduino-esp32/libraries/FFat/src"
+  "../components/arduino-esp32/libraries/FS/src"
+  "../components/arduino-esp32/libraries/Preferences/src"
+  "../components/arduino-esp32/libraries/SPIFFS/src"
+  "../components/arduino-esp32/libraries/SPI/src"
+  "../components/arduino-esp32/libraries/Ticker/src"
+  "../components/arduino-esp32/libraries/Update/src"
+  "../components/arduino-esp32/libraries/Wire/src"
+  "../components/arduino-esp32/libraries/BluetoothSerial/src"
+  "/home/gittest2/esp/esp-idf/components/mbedtls/port/include"
+  "/home/gittest2/esp/esp-idf/components/mbedtls/mbedtls/include"
+  "/home/gittest2/esp/esp-idf/components/mbedtls/esp_crt_bundle/include"
+  "/home/gittest2/esp/esp-idf/components/mdns/include"
+  "/home/gittest2/esp/esp-idf/components/console"
+  "/home/gittest2/esp/esp-idf/components/bt/include"
+  "/home/gittest2/esp/esp-idf/components/bt/common/osi/include"
+  "/home/gittest2/esp/esp-idf/components/bt/host/bluedroid/api/include/api"
+  "/home/gittest2/esp/esp-idf/components/nvs_flash/include"
+  "/home/gittest2/esp/esp-idf/components/fatfs/diskio"
+  "/home/gittest2/esp/esp-idf/components/fatfs/vfs"
+  "/home/gittest2/esp/esp-idf/components/fatfs/src"
+  "/home/gittest2/esp/esp-idf/components/wear_levelling/include"
+  "/home/gittest2/esp/esp-idf/components/sdmmc/include"
+  "/home/gittest2/esp/esp-idf/components/spiffs/include"
   )
 
 # Targets to which this target links.
@@ -154,6 +212,14 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/gittest2/BtBridge/build/esp-idf/esp_https_ota/CMakeFiles/__idf_esp_https_ota.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/esp_http_server/CMakeFiles/__idf_esp_http_server.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/app_update/CMakeFiles/__idf_app_update.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/driver/CMakeFiles/__idf_driver.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/mdns/CMakeFiles/__idf_mdns.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/console/CMakeFiles/__idf_console.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/bt/CMakeFiles/__idf_bt.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/pthread/CMakeFiles/__idf_pthread.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/app_trace/CMakeFiles/__idf_app_trace.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/DependInfo.cmake"
@@ -175,15 +241,14 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/gittest2/BtBridge/build/esp-idf/esp_serial_slave_link/CMakeFiles/__idf_esp_serial_slave_link.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/esp-tls/CMakeFiles/__idf_esp-tls.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/esp_gdbstub/CMakeFiles/__idf_esp_gdbstub.dir/DependInfo.cmake"
-  "/home/gittest2/BtBridge/build/esp-idf/driver/CMakeFiles/__idf_driver.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/perfmon/CMakeFiles/__idf_perfmon.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/nghttp/CMakeFiles/__idf_nghttp.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/esp_event/CMakeFiles/__idf_esp_event.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/tcp_transport/CMakeFiles/__idf_tcp_transport.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/sdmmc/CMakeFiles/__idf_sdmmc.dir/DependInfo.cmake"
-  "/home/gittest2/BtBridge/build/esp-idf/esp_ringbuf/CMakeFiles/__idf_esp_ringbuf.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/DependInfo.cmake"

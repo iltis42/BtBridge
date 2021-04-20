@@ -186,9 +186,9 @@ esp-idf/all: esp-idf/spiffs/all
 esp-idf/all: esp-idf/tinyusb/all
 esp-idf/all: esp-idf/ulp/all
 esp-idf/all: esp-idf/wifi_provisioning/all
+esp-idf/all: esp-idf/arduino-esp32/all
 esp-idf/all: esp-idf/ESP32-OTA-Webserver/all
 esp-idf/all: esp-idf/I2Cbus/all
-esp-idf/all: esp-idf/arduino-esp32/all
 esp-idf/all: esp-idf/main/all
 
 .PHONY : esp-idf/all
@@ -271,9 +271,9 @@ esp-idf/preinstall: esp-idf/spiffs/preinstall
 esp-idf/preinstall: esp-idf/tinyusb/preinstall
 esp-idf/preinstall: esp-idf/ulp/preinstall
 esp-idf/preinstall: esp-idf/wifi_provisioning/preinstall
+esp-idf/preinstall: esp-idf/arduino-esp32/preinstall
 esp-idf/preinstall: esp-idf/ESP32-OTA-Webserver/preinstall
 esp-idf/preinstall: esp-idf/I2Cbus/preinstall
-esp-idf/preinstall: esp-idf/arduino-esp32/preinstall
 esp-idf/preinstall: esp-idf/main/preinstall
 
 .PHONY : esp-idf/preinstall
@@ -356,9 +356,9 @@ esp-idf/clean: esp-idf/spiffs/clean
 esp-idf/clean: esp-idf/tinyusb/clean
 esp-idf/clean: esp-idf/ulp/clean
 esp-idf/clean: esp-idf/wifi_provisioning/clean
+esp-idf/clean: esp-idf/arduino-esp32/clean
 esp-idf/clean: esp-idf/ESP32-OTA-Webserver/clean
 esp-idf/clean: esp-idf/I2Cbus/clean
-esp-idf/clean: esp-idf/arduino-esp32/clean
 esp-idf/clean: esp-idf/main/clean
 
 .PHONY : esp-idf/clean
@@ -2170,9 +2170,9 @@ CMakeFiles/sensor.elf.dir/all: esp-idf/mqtt/CMakeFiles/__idf_mqtt.dir/all
 CMakeFiles/sensor.elf.dir/all: esp-idf/openssl/CMakeFiles/__idf_openssl.dir/all
 CMakeFiles/sensor.elf.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
 CMakeFiles/sensor.elf.dir/all: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all
+CMakeFiles/sensor.elf.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
 CMakeFiles/sensor.elf.dir/all: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all
 CMakeFiles/sensor.elf.dir/all: esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/all
-CMakeFiles/sensor.elf.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
 CMakeFiles/sensor.elf.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensor.elf.dir/build.make CMakeFiles/sensor.elf.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sensor.elf.dir/build.make CMakeFiles/sensor.elf.dir/build
@@ -3849,9 +3849,9 @@ esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/mqtt/C
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/openssl/CMakeFiles/__idf_openssl.dir/all
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/all
+esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/all
-esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
 esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/build.make esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/build.make esp-idf/esp32/CMakeFiles/__ldgen_output_esp32.project.ld.dir/build
@@ -5110,10 +5110,50 @@ esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/clean:
 .PHONY : esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/clean
 
 #=============================================================================
+# Target rules for target esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir
+
+# All Build rule for target.
+esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
+esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
+esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
+esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/mdns/CMakeFiles/__idf_mdns.dir/all
+esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
+esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
+esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
+	$(MAKE) $(MAKESILENT) -f esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build.make esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/depend
+	$(MAKE) $(MAKESILENT) -f esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build.make esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=2,3,4 "Built target __idf_arduino-esp32"
+.PHONY : esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
+
+# Build rule for subdir invocation for target.
+esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 77
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
+.PHONY : esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/rule
+
+# Convenience name for target.
+__idf_arduino-esp32: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/rule
+
+.PHONY : __idf_arduino-esp32
+
+# clean rule for target.
+esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/clean:
+	$(MAKE) $(MAKESILENT) -f esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build.make esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/clean
+.PHONY : esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/clean
+
+#=============================================================================
 # Target rules for target esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir
 
 # All Build rule for target.
 esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-idf/mdns/CMakeFiles/__idf_mdns.dir/all
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build.make esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num= "Built target __idf_ESP32-OTA-Webserver"
@@ -5121,7 +5161,7 @@ esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all: esp-id
 
 # Build rule for subdir invocation for target.
 esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 52
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 77
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
 .PHONY : esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/rule
@@ -5164,39 +5204,6 @@ esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/clean:
 .PHONY : esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/clean
 
 #=============================================================================
-# Target rules for target esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir
-
-# All Build rule for target.
-esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/all
-esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/bt/CMakeFiles/__idf_bt.dir/all
-esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/console/CMakeFiles/__idf_console.dir/all
-esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/mdns/CMakeFiles/__idf_mdns.dir/all
-esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
-esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
-esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
-	$(MAKE) $(MAKESILENT) -f esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build.make esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/depend
-	$(MAKE) $(MAKESILENT) -f esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build.make esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=2,3,4 "Built target __idf_arduino-esp32"
-.PHONY : esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
-
-# Build rule for subdir invocation for target.
-esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 77
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/gittest2/BtBridge/build/CMakeFiles 0
-.PHONY : esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/rule
-
-# Convenience name for target.
-__idf_arduino-esp32: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/rule
-
-.PHONY : __idf_arduino-esp32
-
-# clean rule for target.
-esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/clean:
-	$(MAKE) $(MAKESILENT) -f esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build.make esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/clean
-.PHONY : esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/clean
-
-#=============================================================================
 # Target rules for target esp-idf/main/CMakeFiles/__idf_main.dir
 
 # All Build rule for target.
@@ -5208,9 +5215,9 @@ esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/mdns/CMakeFiles/__idf_mdns.d
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/wear_levelling/CMakeFiles/__idf_wear_levelling.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/fatfs/CMakeFiles/__idf_fatfs.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/gittest2/BtBridge/build/CMakeFiles --progress-num=69 "Built target __idf_main"

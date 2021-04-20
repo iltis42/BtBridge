@@ -34,6 +34,7 @@ some sentences might be lost or truncated.
 
 int sim=100;
 int numS1=0;
+int long_press=0;
 #define HEARTBEAT_PERIOD_MS_SERIAL 25
 
 // Serial Handler  ttyS1, S1, port 8881
@@ -74,6 +75,17 @@ void Serial::serialHandlerS1(void *pvParameters){
 		Router::routeWLAN();
 	    BTSender::progress();   // piggyback this here, saves one task for BT sender
 		esp_task_wdt_reset();
+
+		if( Switch::isClosed() ){
+			long_press++;
+			if( long_press > 10 ){
+				software_update.set(1);
+				esp_restart();
+			}
+		}
+		else
+			long_press = 0;
+
 		vTaskDelay( HEARTBEAT_PERIOD_MS_SERIAL/portTICK_PERIOD_MS );
 	}
 }

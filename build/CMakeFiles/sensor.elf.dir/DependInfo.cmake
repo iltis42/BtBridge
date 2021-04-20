@@ -126,8 +126,6 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "/home/gittest2/esp/esp-idf/components/spiffs/include"
   "/home/gittest2/esp/esp-idf/components/ulp/include"
   "/home/gittest2/esp/esp-idf/components/wifi_provisioning/include"
-  "../components/ESP32-OTA-Webserver"
-  "../components/I2Cbus/include"
   "../components/arduino-esp32/variants/esp32"
   "../components/arduino-esp32/cores/esp32"
   "../components/arduino-esp32/libraries/EEPROM/src"
@@ -141,6 +139,8 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../components/arduino-esp32/libraries/Update/src"
   "../components/arduino-esp32/libraries/Wire/src"
   "../components/arduino-esp32/libraries/BluetoothSerial/src"
+  "../components/ESP32-OTA-Webserver"
+  "../components/I2Cbus/include"
   "../main"
   )
 
@@ -217,9 +217,9 @@ set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/gittest2/BtBridge/build/esp-idf/spiffs/CMakeFiles/__idf_spiffs.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/ulp/CMakeFiles/__idf_ulp.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir/DependInfo.cmake"
+  "/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/DependInfo.cmake"
-  "/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/main/CMakeFiles/__idf_main.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/DependInfo.cmake"
   "/home/gittest2/BtBridge/build/esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedcrypto.dir/DependInfo.cmake"

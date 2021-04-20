@@ -632,6 +632,13 @@
 /home/gittest2/BtBridge/build/esp-idf/wifi_provisioning/CMakeFiles/install/strip.dir
 /home/gittest2/BtBridge/build/esp-idf/wifi_provisioning/CMakeFiles/install/local.dir
 /home/gittest2/BtBridge/build/esp-idf/wifi_provisioning/CMakeFiles/__idf_wifi_provisioning.dir
+/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/install/strip.dir
+/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/install/local.dir
+/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/install.dir
+/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/list_install_components.dir
+/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/edit_cache.dir
+/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/rebuild_cache.dir
+/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir
 /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/install/strip.dir
 /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/install/local.dir
 /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/CMakeFiles/install.dir
@@ -646,13 +653,6 @@
 /home/gittest2/BtBridge/build/esp-idf/I2Cbus/CMakeFiles/rebuild_cache.dir
 /home/gittest2/BtBridge/build/esp-idf/I2Cbus/CMakeFiles/edit_cache.dir
 /home/gittest2/BtBridge/build/esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir
-/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/install/strip.dir
-/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/install/local.dir
-/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/install.dir
-/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/list_install_components.dir
-/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/edit_cache.dir
-/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/rebuild_cache.dir
-/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir
 /home/gittest2/BtBridge/build/esp-idf/main/CMakeFiles/install/strip.dir
 /home/gittest2/BtBridge/build/esp-idf/main/CMakeFiles/install/local.dir
 /home/gittest2/BtBridge/build/esp-idf/main/CMakeFiles/rebuild_cache.dir

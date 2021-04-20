@@ -69,7 +69,7 @@ $<TARGET_FILE:__idf_openssl>
 $<TARGET_FILE:__idf_spiffs>
 $<TARGET_FILE:__idf_ulp>
 $<TARGET_FILE:__idf_wifi_provisioning>
+$<TARGET_FILE:__idf_arduino-esp32>
 $<TARGET_FILE:__idf_ESP32-OTA-Webserver>
 $<TARGET_FILE:__idf_I2Cbus>
-$<TARGET_FILE:__idf_arduino-esp32>
 $<TARGET_FILE:__idf_main>

@@ -14,10 +14,8 @@
 
 #include "esp_ota_ops.h"
 #include "freertos/event_groups.h"
-extern "C" {
 #include "OTAServer.h"
 #include "MyWiFi.h"
-}
 #include "Setup.h"
 #include "OTA.h"
 #include <logdef.h>
@@ -34,7 +32,7 @@ void OTA::begin(){
 void OTA::doSoftwareUpdate(){
 	ESP_LOGI(FNAME,"Now start Wifi OTA");
 	// xTaskCreate(&systemRebootTask, "rebootTask", 2048, NULL, 5, NULL);
-	int line=1;
+
 	init_wifi_softap(&OTA_server);
 	for( int i=900; i>0; i-- ) {
 		char txt[40];

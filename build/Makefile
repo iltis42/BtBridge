@@ -1632,6 +1632,19 @@ __idf_wifi_provisioning/fast:
 .PHONY : __idf_wifi_provisioning/fast
 
 #=============================================================================
+# Target rules for targets named __idf_arduino-esp32
+
+# Build rule for target.
+__idf_arduino-esp32: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_arduino-esp32
+.PHONY : __idf_arduino-esp32
+
+# fast build rule for target.
+__idf_arduino-esp32/fast:
+	$(MAKE) $(MAKESILENT) -f esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build.make esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build
+.PHONY : __idf_arduino-esp32/fast
+
+#=============================================================================
 # Target rules for targets named __idf_ESP32-OTA-Webserver
 
 # Build rule for target.
@@ -1656,19 +1669,6 @@ __idf_I2Cbus: cmake_check_build_system
 __idf_I2Cbus/fast:
 	$(MAKE) $(MAKESILENT) -f esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/build.make esp-idf/I2Cbus/CMakeFiles/__idf_I2Cbus.dir/build
 .PHONY : __idf_I2Cbus/fast
-
-#=============================================================================
-# Target rules for targets named __idf_arduino-esp32
-
-# Build rule for target.
-__idf_arduino-esp32: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 __idf_arduino-esp32
-.PHONY : __idf_arduino-esp32
-
-# fast build rule for target.
-__idf_arduino-esp32/fast:
-	$(MAKE) $(MAKESILENT) -f esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build.make esp-idf/arduino-esp32/CMakeFiles/__idf_arduino-esp32.dir/build
-.PHONY : __idf_arduino-esp32/fast
 
 #=============================================================================
 # Target rules for targets named __idf_main

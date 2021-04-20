@@ -7,8 +7,8 @@ esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/index
  /home/gittest2/BtBridge/build/index.html.S
 esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/__/__/jquery-3.4.1.min.js.S.obj
  /home/gittest2/BtBridge/build/jquery-3.4.1.min.js.S
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.obj
- /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.c
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.cpp.obj
+ /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.cpp
  /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/MyWiFi.h
  /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.h
  /home/gittest2/esp/esp-idf/components/esp_common/include/esp_assert.h
@@ -125,8 +125,12 @@ esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/MyWiFi.c.ob
  /home/gittest2/esp/esp-idf/components/xtensa/include/xtensa/xtruntime-frames.h
  /home/gittest2/esp/esp-idf/components/xtensa/include/xtensa/xtruntime.h
  config/sdkconfig.h
-esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c.obj
- /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.c
+esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.cpp.obj
+ ../components/arduino-esp32/cores/esp32/WString.h
+ ../components/arduino-esp32/cores/esp32/pgmspace.h
+ /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/OTAServer.cpp
+ /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/SetupNG.h
+ /home/gittest2/BtBridge/components/ESP32-OTA-Webserver/logdef.h
  /home/gittest2/esp/esp-idf/components/app_update/include/esp_ota_ops.h
  /home/gittest2/esp/esp-idf/components/bootloader_support/include/esp_app_format.h
  /home/gittest2/esp/esp-idf/components/bootloader_support/include/esp_flash_partitions.h
@@ -178,6 +182,8 @@ esp-idf/ESP32-OTA-Webserver/CMakeFiles/__idf_ESP32-OTA-Webserver.dir/OTAServer.c
  /home/gittest2/esp/esp-idf/components/newlib/platform_include/esp_newlib.h
  /home/gittest2/esp/esp-idf/components/newlib/platform_include/sys/reent.h
  /home/gittest2/esp/esp-idf/components/nghttp/port/include/http_parser.h
+ /home/gittest2/esp/esp-idf/components/nvs_flash/include/nvs.h
+ /home/gittest2/esp/esp-idf/components/nvs_flash/include/nvs_flash.h
  /home/gittest2/esp/esp-idf/components/soc/esp32/include/soc/soc.h
  /home/gittest2/esp/esp-idf/components/soc/esp32/include/soc/soc_caps.h
  /home/gittest2/esp/esp-idf/components/soc/include/soc/soc_memory_layout.h

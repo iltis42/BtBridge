@@ -69,7 +69,7 @@
 /home/gittest2/BtBridge/build/esp-idf/spiffs/libspiffs.a
 /home/gittest2/BtBridge/build/esp-idf/ulp/libulp.a
 /home/gittest2/BtBridge/build/esp-idf/wifi_provisioning/libwifi_provisioning.a
+/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/libarduino-esp32.a
 /home/gittest2/BtBridge/build/esp-idf/ESP32-OTA-Webserver/libESP32-OTA-Webserver.a
 /home/gittest2/BtBridge/build/esp-idf/I2Cbus/libI2Cbus.a
-/home/gittest2/BtBridge/build/esp-idf/arduino-esp32/libarduino-esp32.a
 /home/gittest2/BtBridge/build/esp-idf/main/libmain.a
