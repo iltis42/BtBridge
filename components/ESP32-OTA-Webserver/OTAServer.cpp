@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <string>
 #include <esp_log.h>
 #include <sys/param.h>
 #include <esp_http_server.h>
@@ -252,6 +253,16 @@ esp_err_t OTA_update_post_handler(httpd_req_t *req)
 esp_err_t Config_save_handler(httpd_req_t *req)
 {
 	printf("Config_save_handler: Method: %d  URI: %s\n", req->method, req->uri  );
+	std::string uri( req->uri );
+	if( uri.find("txLine=true") != std::string::npos ){
+		serial1_tx_enable.set(1);
+		printf("true");
+	}
+	else{
+		serial1_tx_enable.set(0);
+		printf("false");
+	}
+
 	return ESP_OK;
 };
 
