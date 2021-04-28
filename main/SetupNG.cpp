@@ -29,24 +29,22 @@ char SetupCommon::_ID[14];
 
 
 
-SetupNG<int>  			blue_enable( "BT_ENABLE" ,  1);
+SetupNG<int>  			blue_enable( "WIRELESS" , WL_BLUETOOTH );
 SetupNG<int>  			factory_reset( "FACTORY_RES" , 0 );
 SetupNG<int>  			rot_default( "ROTARY_DEFAULT", 0 );
 
 SetupNG<int>  			serial1_speed( "SERIAL1_SPEED", 3 );   // tag will stay SERIAL2 from historical reason
-SetupNG<int>  			serial1_rxloop( "SERIAL1_RXLOOP", 0 );
-SetupNG<int>  			serial1_tx( "SERIAL1_TX", 2 );      // Just BT device = XCSoar to control FLARM
+SetupNG<int>  			serial1_route( "RT_WIRELESS", 1 );
 SetupNG<int>  			serial1_pins_twisted( "SERIAL1_PINS", 0 );
 SetupNG<int>  			serial1_tx_inverted( "SERIAL1_TX_INV", RS232_INVERTED );
 SetupNG<int>  			serial1_rx_inverted( "SERIAL1_RX_INV", RS232_INVERTED );
 SetupNG<int>  			serial1_tx_enable( "SER1_TX_ENA", 1 );
 SetupNG<int>  			serial2_speed( "SERIAL2_SPEED", 3 );
+SetupNG<int>  			serial2_route( "RT_WIRELESS", 1 );
 SetupNG<int>  			serial2_pins_twisted( "SERIAL2_PINS", 0 );
-SetupNG<int>  			serial2_tx( "SERIAL2_TX", 1 );     //  BT device and XCVario, Serial2 is foreseen for Protocols or Kobo
 SetupNG<int>  			serial2_tx_inverted( "SERIAL2_TX_INV", RS232_INVERTED );
 SetupNG<int>  			serial2_rx_inverted( "SERIAL2_RX_INV", RS232_INVERTED );
 SetupNG<int>  			serial2_tx_enable( "SER2_TX_ENA", 1 );
-
 SetupNG<int>  			software_update( "SOFTWARE_UPDATE", 0 );
 
 

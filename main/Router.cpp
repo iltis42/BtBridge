@@ -74,21 +74,22 @@ void Router::sendXCV(char * s){
 void Router::routeS1(){
 	SString s1;
 	if( pullMsg( s1_rx_q, s1) ){
-		ESP_LOGD(FNAME,"ttyS1 RX len: %d bytes, Q:%d", s1.length(), bt_tx_q.isFull() );
+		ESP_LOGD(FNAME,"S1 RX len: %d bytes, Q:%d", s1.length(), bt_tx_q.isFull() );
 		ESP_LOG_BUFFER_HEXDUMP(FNAME,s1.c_str(),s1.length(), ESP_LOG_DEBUG);
 		Protocols::parseNMEA( s1.c_str() );
-		if( blue_enable.get() == WL_WLAN )
-			if( forwardMsg( s1, wl_flarm_tx_q ))
-				ESP_LOGV(FNAME,"ttyS1 RX bytes %d forward to wl_flarm_tx_q port 8881", s1.length() );
-		if( blue_enable.get() == WL_BLUETOOTH )
-			if( forwardMsg( s1, bt_tx_q ))
-				ESP_LOGV(FNAME,"ttyS1 RX bytes %d forward to bt_tx_q", s1.length() );
-		if( serial1_rxloop.get() )  // only 0=DISABLE | 1=ENABLE
-			if( forwardMsg( s1, s1_tx_q ))
-				ESP_LOGV(FNAME,"ttyS1 RX bytes %d looped to s1_tx_q", s1.length() );
-		if( serial2_tx.get() & RT_S1 )
+
+		if( serial2_route.get() == RT_WIRELESS )
+		{
+			if( blue_enable.get() == WL_WLAN )
+				if( forwardMsg( s1, wl_vario_tx_q ))
+					ESP_LOGV(FNAME,"S1 RX bytes %d forward to wl_vario_tx_q port 8880", s1.length() );
+			if( blue_enable.get() == WL_BLUETOOTH )
+				if( forwardMsg( s1, bt_tx_q ))
+					ESP_LOGV(FNAME,"S1 RX bytes %d forward to bt_tx_q", s1.length() );
+		}
+		if( serial1_route.get() == RT_SERIAL )  // only 0=DISABLE | 1=ENABLE
 			if( forwardMsg( s1, s2_tx_q ))
-				ESP_LOGV(FNAME,"ttyS1 RX bytes %d looped to s2_tx_q", s1.length() );
+				ESP_LOGV(FNAME,"S1 RX bytes %d looped to s2_tx_q", s1.length() );
 	}
 }
 
@@ -96,18 +97,22 @@ void Router::routeS1(){
 void Router::routeS2(){
 	SString s2;
 	if( pullMsg( s2_rx_q, s2) ){
-		ESP_LOGD(FNAME,"ttyS2 RX len: %d bytes, Q:%d", s2.length(), bt_tx_q.isFull() );
+		ESP_LOGD(FNAME,"S2 RX len: %d bytes, Q:%d", s2.length(), bt_tx_q.isFull() );
 		ESP_LOG_BUFFER_HEXDUMP(FNAME,s2.c_str(),s2.length(), ESP_LOG_DEBUG);
 		Protocols::parseNMEA( s2.c_str() );
-		if( blue_enable.get() == WL_WLAN )
-			if( forwardMsg( s2, wl_aux_tx_q ))
-				ESP_LOGV(FNAME,"ttyS2 RX bytes %d forward to wl_aux_tx_q port 8882", s2.length() );
-		if( blue_enable.get() == WL_BLUETOOTH )
-			if( forwardMsg( s2, bt_tx_q ))
-				ESP_LOGV(FNAME,"ttyS2 RX bytes %d forward to bt_tx_q", s2.length() );
-		if( serial2_tx.get() & RT_S1 )
+
+		if( serial2_route.get() == RT_WIRELESS )
+		{
+			if( blue_enable.get() == WL_WLAN)
+				if( forwardMsg( s2, wl_flarm_tx_q ))
+					ESP_LOGV(FNAME,"S2 RX bytes %d forward to bt_tx_q", s2.length() );
+			if( blue_enable.get() == WL_BLUETOOTH )
+					if( forwardMsg( s2, bt_tx_q ))
+						ESP_LOGV(FNAME,"S2 RX bytes %d forward to wl_flarm_tx_q port 8881", s2.length() );
+		}
+		if( serial2_route.get() & RT_SERIAL )
 			if( forwardMsg( s2, s1_tx_q ))
-				ESP_LOGV(FNAME,"ttyS2 RX bytes %d looped to s1_tx_q", s2.length() );
+				ESP_LOGV(FNAME,"S2 RX bytes %d looped to s1_tx_q", s2.length() );
 	}
 }
 
@@ -125,21 +130,21 @@ void Router::routeWLAN(){
 	}
 	if( pullMsg( wl_flarm_rx_q, wlmsg ) ){
 		Flarm::parsePFLAX( wlmsg );
-		if( serial1_tx.get() & RT_WIRELESS )
+		if( serial1_route.get() & RT_WIRELESS )
 			if( forwardMsg( wlmsg, s1_tx_q ) )
 				ESP_LOGV(FNAME,"Send to  device, TCP port 8881 received %d bytes", wlmsg.length() );
-		if( serial2_tx.get() & RT_WIRELESS )
+		if( serial2_route.get() & RT_WIRELESS )
 			if( forwardMsg( wlmsg, s2_tx_q ) )
-				ESP_LOGV(FNAME,"Send to ttyS2 device, TCP port 8881 received %d bytes", wlmsg.length() );
+				ESP_LOGV(FNAME,"Send to S2 device, TCP port 8881 received %d bytes", wlmsg.length() );
 	}
 	if( pullMsg( wl_aux_rx_q, wlmsg ) ){
 		Flarm::parsePFLAX( wlmsg );
-		if( serial1_tx.get() & RT_WIRELESS )
+		if( serial1_route.get() & RT_WIRELESS )
 			if( forwardMsg( wlmsg, s1_tx_q ) )
 				ESP_LOGV(FNAME,"Send to  device, TCP port 8882 received %d bytes", wlmsg.length() );
-		if( serial2_tx.get() & RT_WIRELESS )
+		if( serial2_route.get() & RT_WIRELESS )
 			if( forwardMsg( wlmsg, s2_tx_q ) )
-				ESP_LOGV(FNAME,"Send to ttyS2 device, TCP port 8882 received %d bytes", wlmsg.length() );
+				ESP_LOGV(FNAME,"Send to S2 device, TCP port 8882 received %d bytes", wlmsg.length() );
 	}
 }
 
@@ -150,10 +155,10 @@ void Router::routeBT(){
 	SString bt;
 	if( pullMsg( bt_rx_q, bt ) ){
 		Flarm::parsePFLAX( bt );
-		if( serial1_tx.get() & RT_WIRELESS )  // Serial data TX from bluetooth enabled ?
+		if( serial1_route.get() & RT_WIRELESS )  // Serial data TX from bluetooth enabled ?
 			if( forwardMsg( bt, s1_tx_q ) )
 				ESP_LOGV(FNAME,"Send to S1 device, BT received %d bytes", bt.length() );
-		if( serial2_tx.get() & RT_WIRELESS )  // Serial data TX from bluetooth enabled ?
+		if( serial2_route.get() & RT_WIRELESS )  // Serial data TX from bluetooth enabled ?
 			if( forwardMsg( bt, s2_tx_q ) )
 				ESP_LOGV(FNAME,"Send to S2 device, BT received %d bytes", bt.length() );
 		// always check if it is a command to ourselves

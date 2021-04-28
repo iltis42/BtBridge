@@ -39,10 +39,12 @@ extern "C" {
  */
 
 typedef enum rs232linemode { RS232_NORMAL, RS232_INVERTED } rs232lm_t;
-typedef enum e_wireless_type { WL_DISABLE, WL_BLUETOOTH, WL_WLAN, WL_WLAN_CLIENT } e_wireless_t;
-typedef enum e_serial_route_type { RT_DISABLE = 0, RT_XCVARIO = 1, RT_WIRELESS = 2, RT_S1 = 4, RT_XCVARIO_S1 = 5  } e_serial_routing_t;
+typedef enum e_wireless_type { WL_BLUETOOTH, WL_WLAN } e_wireless_t;
+typedef enum e_serial_route_type { RT_DISABLE = 0, RT_WIRELESS = 1, RT_SERIAL = 2, RT_BOTH = 3  } e_serial_routing_t;
+
 
 const int baud[] = { 0, 4800, 9600, 19200, 38400, 57600, 115200 };
+
 
 class SetupCommon {
 public:
@@ -249,14 +251,13 @@ extern SetupNG<int>  		factory_reset;
 extern SetupNG<int>  		rot_default;
 
 extern SetupNG<int>  		serial1_speed;
-extern SetupNG<int>  		serial1_rxloop;
-extern SetupNG<int>  		serial1_tx;
+extern SetupNG<int>  		serial1_route;
 extern SetupNG<int>			serial1_pins_twisted;
 extern SetupNG<int>  		serial1_tx_inverted;
 extern SetupNG<int>  		serial1_rx_inverted;
 extern SetupNG<int>  		serial1_tx_enable;
 extern SetupNG<int>  		serial2_speed;
-extern SetupNG<int>  		serial2_tx;
+extern SetupNG<int>  		serial2_route;
 extern SetupNG<int>			serial2_pins_twisted;
 extern SetupNG<int>  		serial2_tx_inverted;
 extern SetupNG<int>  		serial2_rx_inverted;

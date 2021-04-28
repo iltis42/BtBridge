@@ -94,25 +94,57 @@ esp_err_t jquery_3_4_1_min_js_handler(httpd_req_t *req)
 	return ESP_OK;
 }
 
+
+const char *bauds[] = { "OFF", "4800", "9600", "19200", "38400", "57600", "115200" };
+const char *route[] = { "OFF", "Wireless", "Serial", "Both" };
+const char *wireless[] = { "Bluetooth", "Wifi" };
+
 /* Status */
 esp_err_t OTA_update_status_handler(httpd_req_t *req)
 {
-	char ledJSON[200];
+	char ledJSON[400];
 	
 	ESP_LOGI("OTA", "Status Requested");
 	// sprintf(ledJSON, "{\"status\":%d,\"compile_time\":\"%s\",\"compile_date\":\"%s\"}", flash_status, __TIME__, __DATE__);
 	sprintf(ledJSON, "{\"status\":%d,"
-						"\"compile_time\":\"%s\","
-			            "\"compile_date\":\"%s\","
-						"\"serial1_tx_enable\":\"%d\""
-			           "}", flash_status,
-					   	   __TIME__,
-						   __DATE__,
-						  serial1_tx_enable.get()
-						);
+			"\"compile_time\":\"%s\","
+			"\"compile_date\":\"%s\","
+			"\"serial1_tx_enable\":\"%d\","
+			"\"serial2_tx_enable\":\"%d\","
+			"\"serial1_tx_inverted\":\"%d\","
+			"\"serial2_tx_inverted\":\"%d\","
+			"\"serial1_rx_inverted\":\"%d\","
+			"\"serial2_rx_inverted\":\"%d\","
+			"\"serial1_pins_twisted\":\"%d\","
+			"\"serial2_pins_twisted\":\"%d\","
+			"\"serial1_speed\":\"%s\","
+			"\"serial2_speed\":\"%s\","
+			"\"serial1_route\":\"%s\","
+			"\"serial2_route\":\"%s\","
+			"\"wireless\":\"%s\""
+			"}",
+			flash_status,
+			__TIME__,
+			__DATE__,
+			serial1_tx_enable.get(),
+			serial2_tx_enable.get(),
+			serial1_tx_inverted.get(),
+			serial2_tx_inverted.get(),
+			serial1_rx_inverted.get(),
+			serial2_rx_inverted.get(),
+			serial1_pins_twisted.get(),
+			serial2_pins_twisted.get(),
+			bauds[ serial1_speed.get() ],
+			bauds[ serial2_speed.get() ],
+			route[ serial1_route.get() ],
+			route[ serial2_route.get() ],
+			wireless[ blue_enable.get() ]
+	);
 	httpd_resp_set_type(req, "application/json");
 	httpd_resp_send(req, ledJSON, strlen(ledJSON));
 	
+	printf("JSON config= %s\n", ledJSON );
+
 	// This gets set when upload is complete
 	if (flash_status == 1)
 	{
@@ -250,18 +282,65 @@ esp_err_t OTA_update_post_handler(httpd_req_t *req)
 
 }
 
+
+int get_uri_value( std::string uri, std::string tag, const char *lookup[], int elements ){
+	printf("URI = %s\n", uri.c_str() );
+	size_t pos =  uri.find( tag.c_str() );
+	int b = 0;
+	if( pos != std::string::npos ) {
+		std::string sub = uri.substr( pos+tag.length() );
+		size_t pos2 = sub.find( '?' );
+		if( pos2 != std::string::npos ){
+			std::string s = uri.substr( pos+tag.length(), pos2 );
+			printf("URI/VAL = %s\n",  s.c_str() );
+			for( int i=0; i< elements; i++ ){
+				printf("%d LOOKUP = %s\n", i, lookup[i] );
+				if( std::string( lookup[i] ) == s ){
+					b=i;
+					break;
+				}
+			}
+		}
+	}
+	printf("BAUD RET = %d\n", b );
+	return b;
+}
+
 esp_err_t Config_save_handler(httpd_req_t *req)
 {
 	printf("Config_save_handler: Method: %d  URI: %s\n", req->method, req->uri  );
 	std::string uri( req->uri );
-	if( uri.find("txLine=true") != std::string::npos ){
-		serial1_tx_enable.set(1);
-		printf("true");
-	}
-	else{
-		serial1_tx_enable.set(0);
-		printf("false");
-	}
+	if( uri.find("txEnaS1") != std::string::npos  )
+		serial1_tx_enable.set( uri.find("txEnaS1=true") != std::string::npos  );
+	if( uri.find("txEnaS2") != std::string::npos  )
+		serial2_tx_enable.set( uri.find("txEnaS2=true") != std::string::npos  );
+
+	if( uri.find("txInvS1") != std::string::npos  )
+		serial1_tx_inverted.set( uri.find("txInvS1=true") != std::string::npos );
+	if( uri.find("txInvS2") != std::string::npos  )
+		serial2_tx_inverted.set( uri.find("txInvS2=true") != std::string::npos );
+	if( uri.find("rxInvS1") != std::string::npos  )
+		serial1_rx_inverted.set( uri.find("rxInvS1=true") != std::string::npos );
+	if( uri.find("rxInvS2") != std::string::npos  )
+		serial2_rx_inverted.set( uri.find("rxInvS2=true") != std::string::npos );
+	if( uri.find("twistS1") != std::string::npos  )
+		serial1_pins_twisted.set( uri.find("twistS1=true") != std::string::npos );
+	if( uri.find("twistS2") != std::string::npos  )
+		serial2_pins_twisted.set( uri.find("twistS2=true") != std::string::npos );
+
+	if( uri.find("baudS1") != std::string::npos  )
+		serial1_speed.set( get_uri_value( uri, "baudS1=", bauds, sizeof(bauds)/sizeof(char *) ) );
+	if( uri.find("baudS2") != std::string::npos  )
+		serial2_speed.set( get_uri_value( uri, "baudS2=", bauds, sizeof(bauds)/sizeof(char *) ) );
+
+	if( uri.find("routeS1") != std::string::npos  )
+		serial1_route.set( get_uri_value( uri, "routeS1=", route, sizeof(route)/sizeof(char *) ) );
+	if( uri.find("routeS2") != std::string::npos  )
+		serial2_route.set( get_uri_value( uri, "routeS2=", route, sizeof(route)/sizeof(char *) ) );
+
+	if( uri.find("wireless") != std::string::npos  )
+		blue_enable.set( get_uri_value( uri, "wireless=", wireless, sizeof(wireless)/sizeof(char *) ) );
+
 
 	return ESP_OK;
 };

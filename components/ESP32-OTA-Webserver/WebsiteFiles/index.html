@@ -2,50 +2,117 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>ESP32 OTA</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1' />
-    <script src="jquery-3.4.1.min.js"></script>
+<meta charset="UTF-8">
+<title>ESP32 OTA</title>
+<meta name='viewport' content='width=device-width, initial-scale=1' />
+<script src="jquery-3.4.1.min.js"></script>
 
 </head>
 
-<<body onload="getstatus()">
+<body onload="getstatus()">
 
-    <h2>BT/Wifi Bridge Config and Update Page</h2>
-    <fieldset style="width:270px" >
-	<legend>Software Update</legend>
-    <h4 id="latest_firmware"></h4>
+	<h2>BT/Wifi Bridge Config and Update Page</h2>
+	<fieldset style="width: 270px">
+		<legend>Software Update</legend>
+		<h4 id="latest_firmware"></h4>
 
-    <input type="file" id="selectedFile" accept=".bin" style="display: none;" onchange="selectFile()" />
-    <input type="button" value="Browse..." onclick="document.getElementById('selectedFile').click();" />
-  
-    <h3 id="file_info"></h3>
-    <input type='submit' id="upload_button" value='Update Firmware' onclick="updateFirmware()"/><br><br>
-     </fieldset>
-    <fieldset style="width:270px" >
-	<legend>Serial Interface S1</legend>
-	<input type="radio" id="speed" name="speed1" value="4800">
-	<label for="speed1">4800</label><br>
-	<input type="radio" id="speed" name="speed2" value="9600">
-	<label for="speed2">9600</label><br>
-	
-	 
-    TX Line<input type="checkbox" id="txEnaS1" onclick="txEnaS1()" onload="loadtxEnaS1()">
-    <label id="txEnaLabelS1" for="txEnaS1"></label><br>
-    
-    TX Line Invert<input type="checkbox" id="txLineInvS1" onclick="txLineInvS1()" onload="loadtxLineInvS1()">
-    <label id="txInvS1" for="txInvS1"></label><br>
-    </fieldset>
-    <br>
-    <button type="submit" value="Save Setup" onclick="saveSetup()" >Submit</button>
-    
-    <h4 id="status"></h4>
-    <h4 id="status1"></h4>
+		<input type="file" id="selectedFile" accept=".bin"
+			style="display: none;" onchange="selectFile()" /> <input
+			type="button" value="Browse..."
+			onclick="document.getElementById('selectedFile').click();" />
 
-    <script type="text/javascript">
+		<h3 id="file_info"></h3>
+		<input type='submit' id="upload_button" value='Update Firmware'
+			onclick="updateFirmware()" /><br>
+		<br>
+	</fieldset>
+
+	<fieldset style="width: 270px">
+		<legend>Wireless</legend>
+		<label for="wireless">Protocol</label> <select name="wireless"
+			id="wireless">
+			<option value="Bluetooth">Bluetooth</option>
+			<option value="Wifi">Wifi</option>
+		</select>
+	</fieldset>
+
+	<fieldset style="width: 270px">
+		<legend>Serial Interface S1</legend>
+		<label for="baudS1">Baudrate:</label> <select name="baudS1"
+			id="baudS1">
+			<option value="OFF">OFF</option>
+			<option value="4800">4800</option>
+			<option value="9600">9600</option>
+			<option value="19200">19200</option>
+			<option value="38400">38400</option>
+			<option value="57600">57600</option>
+			<option value="115200">115200</option>
+		</select> <br> <label for="routeS1">Routing:</label> <select
+			name="routeS1" id="routeS1">
+			<option value="OFF">OFF</option>
+			<option value="Wireless">Wireless</option>
+			<option value="Serial">Serial</option>
+			<option value="Both">Both</option>
+		</select>
+		<hr>
+
+		<label id="txEnaLabelS1" for="txEnaS1">TX Line Enable</label> <input
+			type="checkbox" id="txEnaS1">
+		<hr>
+		<label id="twistS1Label" for="twistS1">TX/RX Lines Twist</label> <input
+			type="checkbox" id="twistS1">
+		<hr>
+
+		<label id="rxEnaLabelS1" for="rxInvS1">RX Line Inversion</label> <input
+			type="checkbox" id="rxInvS1"> <br> <label
+			id="TxEnaLabelS1" for="txInvS1">TX Line Inversion</label> <input
+			type="checkbox" id="txInvS1"> <br>
+	</fieldset>
+
+	<fieldset style="width: 270px">
+		<legend>Serial Interface S2</legend>
+
+		<label for="baudS2">Baudrate:</label> <select name="baudS2"
+			id="baudS2">
+			<option value="OFF">OFF</option>
+			<option value="4800">4800</option>
+			<option value="9600">9600</option>
+			<option value="19200">19200</option>
+			<option value="38400">38400</option>
+			<option value="57600">57600</option>
+			<option value="115200">115200</option>
+		</select> <br> <label for="routeS2">Routing:</label> <select
+			name="routeS2" id="routeS2">
+			<option value="OFF">OFF</option>
+			<option value="Wireless">Wireless</option>
+			<option value="SERIAL">SERIAL</option>
+			<option value="BOTH">BOTH</option>
+		</select>
+		<hr>
+
+		<label id="txEnaLabelS2" for="txEnaS2">TX Line Enable</label> <input
+			type="checkbox" id="txEnaS2">
+		<hr>
+		<label id="twistS2Label" for="twistS2">TX/RX Lines Twist</label> <input
+			type="checkbox" id="twistS2">
+		<hr>
+
+		<label id="rxEnaLabelS2" for="rxInvS2">RX Line Inversion</label> <input
+			type="checkbox" id="rxInvS2"> <br> <label
+			id="TxEnaLabelS2" for="txInvS2">TX Line Inversion</label> <input
+			type="checkbox" id="txInvS2"> <br>
+	</fieldset>
+
+	<br>
+	<button type="submit" value="Save Setup" onclick="saveSetup()">Submit</button>
+
+	<h4 id="status"></h4>
+	<h4 id="status1"></h4>
+
+	<script type="text/javascript">
         var seconds = 10;
         var theTimer;
-    
+ 
         function selectFile() {
             var x = document.getElementById("selectedFile");
             var file = x.files[0];
@@ -56,13 +123,33 @@
         function saveSetup(){
             var xhr = new XMLHttpRequest();
             var requestURL = "/save"; 
-            requestURL += "?txLine=" + document.getElementById("txEnaS1").checked.toString();
+            requestURL += "?txEnaS1=" + document.getElementById("txEnaS1").checked.toString();
+            requestURL += "?txInvS1=" + document.getElementById("txInvS1").checked.toString();
+            requestURL += "?rxInvS1=" + document.getElementById("rxInvS1").checked.toString();
+            requestURL += "?twistS1=" + document.getElementById("twistS1").checked.toString();
+            requestURL += "?baudS1=" + document.getElementById("baudS1").value;
+            requestURL += "?routeS1=" + document.getElementById("routeS1").value;
+            
             xhr.open('POST', requestURL, true);
-            //Send the proper header information along with the request
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             console.log("Save Config");
             xhr.send('save');
-            window.alert('Saved');        	
+            
+            requestURL = "/save"; 
+            requestURL += "?txEnaS2=" + document.getElementById("txEnaS2").checked.toString();
+            requestURL += "?txInvS2=" + document.getElementById("txInvS2").checked.toString();
+            requestURL += "?rxInvS2=" + document.getElementById("rxInvS2").checked.toString();
+            requestURL += "?twistS2=" + document.getElementById("twistS2").checked.toString();
+            requestURL += "?baudS2=" + document.getElementById("baudS2").value;
+            requestURL += "?routeS2=" + document.getElementById("routeS2").value;
+            
+            requestURL += "?wireless=" + document.getElementById("wireless").value;
+            
+            xhr.open('POST', requestURL, true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            console.log("Save Config");
+            xhr.send('save');
+            window.alert('New Settings Saved!');        	
         }
         
         function updateFirmware() {
@@ -121,16 +208,27 @@
                     var config = JSON.parse(xhr.responseText);
                     
                     // Set the data in the html elements for the interfaces config
-                    window.alert('TX Enable=' + config.serial1_tx_enable.toString() );
-                    var checkBox = document.getElementById("txEnaS1");
-                    if( config.serial1_tx_enable == 1 ) {
-                    	checkBox.checked = true;
-                    }
-                    else{
-                    	checkBox.checked = false;
-                    }
-                    txEnaS1();
-                    	
+                    // window.alert('JSON response=' + xhr.responseText  );
+                    document.getElementById("txEnaS1").checked = Boolean( config.serial1_tx_enable == 1 );
+                    document.getElementById("txEnaS2").checked = Boolean( config.serial2_tx_enable == 1 );
+                    
+                    document.getElementById("txInvS1").checked = Boolean( config.serial1_tx_inverted == 1 );
+                    document.getElementById("txInvS2").checked = Boolean( config.serial2_tx_inverted == 1 );
+                    document.getElementById("rxInvS1").checked = Boolean( config.serial1_rx_inverted == 1 );
+                    document.getElementById("rxInvS2").checked = Boolean( config.serial2_rx_inverted == 1 );
+                    
+                    document.getElementById("twistS1").checked = Boolean( config.serial1_pins_twisted == 1 );
+                    document.getElementById("twistS2").checked = Boolean( config.serial2_pins_twisted == 1 );
+                    
+                    document.getElementById("baudS1").value = config.serial1_speed;
+                    document.getElementById("baudS2").value = config.serial2_speed;
+                    
+                    document.getElementById("routeS1").value = config.serial1_route;
+                    document.getElementById("routeS2").value = config.serial2_route;
+                    
+                    document.getElementById("wireless").value = config.wireless;                  
+                    
+                 
                     document.getElementById("latest_firmware").innerHTML = "Current Firmware:  " + config.compile_date + " - " + config.compile_time
                         // If flashing was complete it will return a 1, else -1
                         // A return of 0 is just for information on the Latest Firmware request
@@ -175,24 +273,9 @@
         	  var checkBox = document.getElementById("txEnaS1");
         	  // Get the output text
         	  var label = document.getElementById("txEnaLabelS1");
-        	  // If the checkbox is checked, display the output text
-        	  if (checkBox.checked == true){
-        		  label.innerHTML = "Enable"
-   	     	  } else {
-         	      label.innerHTML = "Disable"
-        	  }
-        	  
+        	  // If the checkbox is checked, display the output text  
         } 
-        
-        function loadtxEnaS1() {
-      	  // Get the checkbox initial state from flash config
-      	  // getstatus();
-      	  txEnaS1(); 
-      	 
-        } 
-        
-      
-
+   
 	</script>
 </body>
 

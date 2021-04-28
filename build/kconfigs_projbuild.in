@@ -1,7 +1,0 @@
-source "/home/gittest2/esp/esp-idf/components/app_update/Kconfig.projbuild"
-source "/home/gittest2/esp/esp-idf/components/bootloader/Kconfig.projbuild"
-source "/home/gittest2/esp/esp-idf/components/esptool_py/Kconfig.projbuild"
-source "/home/gittest2/esp/esp-idf/components/partition_table/Kconfig.projbuild"
-source "/home/gittest2/BtBridge/components/ESP32-OTA-Webserver/Kconfig.projbuild"
-source "/home/gittest2/BtBridge/components/I2Cbus/Kconfig.projbuild"
-source "/home/gittest2/BtBridge/components/arduino-esp32/Kconfig.projbuild"
