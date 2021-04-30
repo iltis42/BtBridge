@@ -61,7 +61,7 @@ void Serial::serialHandlerS1(void *pvParameters){
 			// ESP_LOGI(FNAME,"Flarm::bincom %d", Flarm::bincom  );
 			if( (numS1 == num) || Flarm::bincom ){    // normally wait unit sentence has ended, or in binary mode just continue
 				int numread = Serial1.read( s.c_str(), num );
-				// ESP_LOGI(FNAME,"Serial 1 RX bytes read: %d  bincom: %d", numread,  Flarm::bincom  );
+				ESP_LOGI(FNAME,"Serial 1 RX bytes read: %d  bincom: %d", numread,  Flarm::bincom  );
 				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),numread, ESP_LOG_INFO);
 				s.setLen( numread );
 				Router::forwardMsg( s, s1_rx_q );
@@ -70,22 +70,18 @@ void Serial::serialHandlerS1(void *pvParameters){
 			else
 				numS1 = num;
 		}
-		Router::routeS1();
-		Router::routeBT();
-		Router::routeWLAN();
-	    BTSender::progress();   // piggyback this here, saves one task for BT sender
-		esp_task_wdt_reset();
 
 		if( Switch::isClosed() ){
 			long_press++;
 			if( long_press > 10 ){
-				software_update.set(1);
+				ESP_LOGI(FNAME,"Switch long pressed, restart!");
+				// software_update.set(1);
 				esp_restart();
 			}
 		}
 		else
 			long_press = 0;
-
+		esp_task_wdt_reset();
 		vTaskDelay( HEARTBEAT_PERIOD_MS_SERIAL/portTICK_PERIOD_MS );
 	}
 }
@@ -94,38 +90,49 @@ int numS2=0;
 // ttyS2, port 8882
 void Serial::serialHandlerS2(void *pvParameters){
 	while(1) {
-		Router::routeBT();
 		SString s;
 		if ( !s2_tx_q.isEmpty() && Serial2.availableForWrite() ){
 			if( Router::pullMsg( s2_tx_q, s ) ) {
-				ESP_LOGD(FNAME,"Serial Data and avail");
-				ESP_LOGD(FNAME,"Serial 2 TX len: %d bytes", s.length() );
-				ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_DEBUG);
+				ESP_LOGI(FNAME,"Serial Data and avail");
+				ESP_LOGI(FNAME,"Serial 2 TX len: %d bytes", s.length() );
+				ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_INFO);
 				int wr = Serial2.write( s.c_str(), s.length() );
 				ESP_LOGD(FNAME,"Serial 2 TX written: %d", wr);
 			}
 		}
 		int num = Serial2.available();
 		if( num > 0 ) {
-			ESP_LOGI(FNAME,"Serial 2 RX avail %d bytes", num );
+			// ESP_LOGI(FNAME,"Serial 2 RX avail %d bytes", num );
 			if( num >= SSTRLEN ) {
 				ESP_LOGW(FNAME,"Serial 2 RX Overrun >= %d bytes avail: %d, Bytes", SSTRLEN, num);
 				num=SSTRLEN;
 			}
 			if( (numS2 == num) || Flarm::bincom ){  // normally wait unit sentence has ended, or in binary mode just continue
 				int numread = Serial2.read( s.c_str(), num );
-				ESP_LOGD(FNAME,"Serial 2 RX bytes read: %d", numread );
-				// ESP_LOG_BUFFER_HEXDUMP(FNAME,rxBuffer,numread, ESP_LOG_INFO);
+				ESP_LOGI(FNAME,"Serial 2 RX bytes read: %d", numread );
+				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),numread, ESP_LOG_INFO);
 				s.setLen( numread );
 				Router::forwardMsg( s, s2_rx_q );
+				s.clear();
 				numS2 = 0;
 			}
 			else
 				numS2 = num;
 		}
-		Router::routeWLAN();
-		Router::routeS2();
+
 		esp_task_wdt_reset();
+		vTaskDelay( HEARTBEAT_PERIOD_MS_SERIAL/portTICK_PERIOD_MS );  // 48 bytes each 20 mS traffic at 19.200 baud
+	}
+}
+
+
+void Serial::routerTask(void *pvParameters){
+	while(1) {
+		Router::routeBT();
+		Router::routeWLAN();
+		Router::routeS1();
+		Router::routeS2();
+		BTSender::progress();   // piggyback this here, saves one task for BT sender
 		vTaskDelay( HEARTBEAT_PERIOD_MS_SERIAL/portTICK_PERIOD_MS );  // 48 bytes each 20 mS traffic at 19.200 baud
 	}
 }
@@ -185,20 +192,20 @@ void Serial::begin(){
 			ESP_LOGI(FNAME,"Serial Interface ttyS1 enabled with serial speed: %d baud: %d tx_inv: %d rx_inv: %d",  serial1_speed.get(), baud[serial1_speed.get()], serial1_tx_inverted.get(), serial1_rx_inverted.get() );
 			if( serial1_pins_twisted.get() ){
 				if( serial1_tx_enable.get() ){
-					Serial1.begin(baudrate,SERIAL_8N1,17,16, serial1_rx_inverted.get(), serial1_tx_inverted.get());   //  IO16: RXD2,  IO17: TXD2
-				}else{
-					Serial1.begin(baudrate,SERIAL_8N1,17,36, serial1_rx_inverted.get(), serial1_tx_inverted.get());   //  IO16: RXD2,  IO17: TXD2
-					gpio_set_direction(GPIO_NUM_16, GPIO_MODE_INPUT);     // 2020 series 1, analog in
-					gpio_pullup_dis( GPIO_NUM_16 );
-				}
-			}
-			else{
-				if( serial1_tx_enable.get() ){
 					Serial1.begin(baudrate,SERIAL_8N1,16,17, serial1_rx_inverted.get(), serial1_tx_inverted.get());   //  IO16: RXD2,  IO17: TXD2
 				}else{
 					Serial1.begin(baudrate,SERIAL_8N1,16,36, serial1_rx_inverted.get(), serial1_tx_inverted.get());   //  IO16: RXD2,  IO17: TXD2
 					gpio_set_direction(GPIO_NUM_17, GPIO_MODE_INPUT);     // 2020 series 1, analog in
 					gpio_pullup_dis( GPIO_NUM_17 );
+				}
+			}
+			else{
+				if( serial1_tx_enable.get() ){
+					Serial1.begin(baudrate,SERIAL_8N1,17,16, serial1_rx_inverted.get(), serial1_tx_inverted.get());   //  IO16: RXD2,  IO17: TXD2
+				}else{
+					Serial1.begin(baudrate,SERIAL_8N1,17,36, serial1_rx_inverted.get(), serial1_tx_inverted.get());   //  IO16: RXD2,  IO17: TXD2
+					gpio_set_direction(GPIO_NUM_16, GPIO_MODE_INPUT);     // 2020 series 1, analog in
+					gpio_pullup_dis( GPIO_NUM_16 );
 				}
 			}
 			Serial1.setRxBufferSize(256);
@@ -209,21 +216,21 @@ void Serial::begin(){
 		ESP_LOGI(FNAME,"Serial Interface ttyS2 enabled with serial speed: %d baud: %d tx_inv: %d rx_inv: %d",  serial2_speed.get(), baud[serial2_speed.get()], serial2_tx_inverted.get(), serial2_rx_inverted.get() );
 		if( serial2_pins_twisted.get() ){  //   speed, RX, TX, invRX, invTX
 			if( serial2_tx_enable.get() ){
-				Serial2.begin(baud[serial2_speed.get()],SERIAL_8N1,4,18, serial2_rx_inverted.get(), serial2_tx_inverted.get());   //  IO4: RXD2,  IO18: TXD2
+				Serial2.begin(baud[serial2_speed.get()],SERIAL_8N1,19,18, serial2_rx_inverted.get(), serial2_tx_inverted.get());   //  IO4: RXD2,  IO18: TXD2
 			}else{
-				Serial2.begin(baud[serial2_speed.get()],SERIAL_8N1,4,36, serial2_rx_inverted.get(), serial2_tx_inverted.get());
+				Serial2.begin(baud[serial2_speed.get()],SERIAL_8N1,19,36, serial2_rx_inverted.get(), serial2_tx_inverted.get());
 				gpio_set_direction(GPIO_NUM_18, GPIO_MODE_INPUT);     // 2020 series 1, analog in
 				gpio_pullup_dis( GPIO_NUM_18 );
 			}
 		}
 		else{
 			if( serial2_tx_enable.get() ){
-				Serial2.begin(baud[serial2_speed.get()],SERIAL_8N1,18,4, serial2_rx_inverted.get(), serial2_tx_inverted.get());   //  IO18: RXD2,  IO4: TXD2
+				Serial2.begin(baud[serial2_speed.get()],SERIAL_8N1,18,19, serial2_rx_inverted.get(), serial2_tx_inverted.get());   //  IO18: RXD2,  IO4: TXD2
 			}
 			else{
 				Serial2.begin(baud[serial2_speed.get()],SERIAL_8N1,18,36, serial2_rx_inverted.get(), serial2_tx_inverted.get());
-				gpio_set_direction(GPIO_NUM_4, GPIO_MODE_INPUT);     // 2020 series 1, analog in
-				gpio_pullup_dis( GPIO_NUM_4 );
+				gpio_set_direction(GPIO_NUM_19, GPIO_MODE_INPUT);     // 2020 series 1, analog in
+				gpio_pullup_dis( GPIO_NUM_19 );
 			}
 		}
 		Serial2.setRxBufferSize(256);
@@ -232,11 +239,17 @@ void Serial::begin(){
 
 void Serial::taskStart(){
 	ESP_LOGI(FNAME,"Serial::taskStart()" );
+
 	if( serial1_speed.get() != 0  || blue_enable.get() != 0 ){
-		xTaskCreatePinnedToCore(&Serial::serialHandlerS1, "serialHandlerS1", 4096, NULL, 27, 0, 0);
+		xTaskCreatePinnedToCore(&Serial::serialHandlerS1, "serialHandlerS1", 4096, NULL, 16, 0, 0);
 	}
+
 	if( serial2_speed.get() != 0 ){
-		xTaskCreatePinnedToCore(&Serial::serialHandlerS2, "serialHandlerS2", 4096, NULL, 26, 0, 0);
+		xTaskCreatePinnedToCore(&Serial::serialHandlerS2, "serialHandlerS2", 4096, NULL, 15, 0, 0);
+	}
+
+	if( serial2_speed.get() != 0 || serial1_speed.get() != 0 ){
+			xTaskCreatePinnedToCore(&Serial::routerTask, "routerTask", 4096, NULL, 29, 0, 0);
 	}
 }
 

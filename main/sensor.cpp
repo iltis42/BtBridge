@@ -56,7 +56,7 @@ void sensor(void *args){
 	NVS.begin();
 	theButton.begin(GPIO_NUM_0);  // push Button
 
-	bool doUpdate = software_update.get();
+	bool doUpdate = false; //  = software_update.get();
 	if( Switch::isClosed() ){
 		doUpdate = true;
 		ESP_LOGI(FNAME,"Rotary pressed: Do Software Update");

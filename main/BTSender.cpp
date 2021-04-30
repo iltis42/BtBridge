@@ -16,6 +16,7 @@
 #include "sensor.h"
 #include "Router.h"
 #include "BluetoothSerial.h"
+#include "esp_bt.h"
 
 bool BTSender::selfTest(){
 	ESP_LOGI(FNAME,"SerialBT::selfTest");
@@ -58,7 +59,7 @@ void BTSender::progress(){
 		while (SerialBT->available() && (rx.length() < SSTRLEN-1) ){
 			Router::pullMsg( bt_rx_q , rx );
 			char byte = (char)SerialBT->read();
-			// ESP_LOGI(FNAME,"BT RFCOMM RX %c", byte );
+			ESP_LOGI(FNAME,"BT RFCOMM RX %c", byte );
 			rx.append( &byte, 1 );
 		}
 		Router::forwardMsg( rx, bt_rx_q );
@@ -67,7 +68,7 @@ void BTSender::progress(){
 	if( SerialBT->hasClient() ) {
 		SString msg;
 		if ( Router::pullMsg( bt_tx_q, msg ) ){
-			ESP_LOGV(FNAME,"data avail for BT send %d bytes: %s", msg.length(), msg.c_str() );
+			ESP_LOGI(FNAME,"data avail for BT send %d bytes: %s", msg.length(), msg.c_str() );
 			SerialBT->write( (const uint8_t *)msg.c_str(), msg.length() );
 		}
 	}
@@ -79,6 +80,12 @@ void BTSender::begin(){
 		 ESP_LOGI(FNAME,"BT on, create BT master object" );
 		 SerialBT = new BluetoothSerial();
 		 SerialBT->begin(SetupCommon::getID() );
+		 /*
+		 if (esp_bredr_tx_power_set(ESP_PWR_LVL_N12, ESP_PWR_LVL_N6) != ESP_OK)
+		   {
+			 ESP_LOGI(FNAME,"esp_bredr_tx_power_set failed");
+		   };
+		 */
 	}
 }
 

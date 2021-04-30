@@ -104,7 +104,7 @@
 	</fieldset>
 
 	<br>
-	<button type="submit" value="Save Setup" onclick="saveSetup()">Submit</button>
+	<button type="submit" value="Submit" onclick="saveSetup()">Submit and Restart</button>
 
 	<h4 id="status"></h4>
 	<h4 id="status1"></h4>
@@ -129,7 +129,8 @@
             requestURL += "?twistS1=" + document.getElementById("twistS1").checked.toString();
             requestURL += "?baudS1=" + document.getElementById("baudS1").value;
             requestURL += "?routeS1=" + document.getElementById("routeS1").value;
-            
+            requestURL += "?end"
+            		
             xhr.open('POST', requestURL, true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             console.log("Save Config");
@@ -144,12 +145,17 @@
             requestURL += "?routeS2=" + document.getElementById("routeS2").value;
             
             requestURL += "?wireless=" + document.getElementById("wireless").value;
-            
+            requestURL += "?end"
+            		
             xhr.open('POST', requestURL, true);
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             console.log("Save Config");
             xhr.send('save');
-            window.alert('New Settings Saved!');        	
+            window.alert('New Settings Saved: Now restart');
+            requestURL = "/save?restart=true";
+            xhr.open('POST', requestURL, true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.send('save');
         }
         
         function updateFirmware() {

@@ -284,12 +284,12 @@ esp_err_t OTA_update_post_handler(httpd_req_t *req)
 
 
 int get_uri_value( std::string uri, std::string tag, const char *lookup[], int elements ){
-	printf("URI = %s\n", uri.c_str() );
+	printf("get_uri_value for tag %s, URI = %s, elements %d\n", tag.c_str(), uri.c_str(), elements );
 	size_t pos =  uri.find( tag.c_str() );
 	int b = 0;
 	if( pos != std::string::npos ) {
 		std::string sub = uri.substr( pos+tag.length() );
-		size_t pos2 = sub.find( '?' );
+		size_t pos2 = sub.find( "?" );
 		if( pos2 != std::string::npos ){
 			std::string s = uri.substr( pos+tag.length(), pos2 );
 			printf("URI/VAL = %s\n",  s.c_str() );
@@ -302,7 +302,7 @@ int get_uri_value( std::string uri, std::string tag, const char *lookup[], int e
 			}
 		}
 	}
-	printf("BAUD RET = %d\n", b );
+	printf("RET = %d\n", b );
 	return b;
 }
 
@@ -341,6 +341,8 @@ esp_err_t Config_save_handler(httpd_req_t *req)
 	if( uri.find("wireless") != std::string::npos  )
 		blue_enable.set( get_uri_value( uri, "wireless=", wireless, sizeof(wireless)/sizeof(char *) ) );
 
+	if( uri.find("restart=true") != std::string::npos  )
+		esp_restart();
 
 	return ESP_OK;
 };

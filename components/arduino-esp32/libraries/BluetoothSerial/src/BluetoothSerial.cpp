@@ -75,6 +75,8 @@ typedef struct {
         uint8_t data[];
 } spp_packet_t;
 
+#undef ARDUHAL_LOG_LEVEL
+#define ARDUHAL_LOG_LEVEL  ARDUHAL_LOG_LEVEL_INFO
 #if (ARDUHAL_LOG_LEVEL >= ARDUHAL_LOG_LEVEL_INFO)
 static char *bda2str(esp_bd_addr_t bda, char *str, size_t size)
 {

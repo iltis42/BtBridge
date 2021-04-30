@@ -74,22 +74,27 @@ void Router::sendXCV(char * s){
 void Router::routeS1(){
 	SString s1;
 	if( pullMsg( s1_rx_q, s1) ){
-		ESP_LOGD(FNAME,"S1 RX len: %d bytes, Q:%d", s1.length(), bt_tx_q.isFull() );
-		ESP_LOG_BUFFER_HEXDUMP(FNAME,s1.c_str(),s1.length(), ESP_LOG_DEBUG);
+		// ESP_LOGI(FNAME,"S1 RX len: %d bytes, Q full:%d", s1.length(), bt_tx_q.isFull() );
+		// ESP_LOG_BUFFER_HEXDUMP(FNAME,s1.c_str(),s1.length(), ESP_LOG_DEBUG);
 		Protocols::parseNMEA( s1.c_str() );
 
-		if( serial2_route.get() == RT_WIRELESS )
+		if( serial1_route.get() == RT_WIRELESS )
 		{
-			if( blue_enable.get() == WL_WLAN )
+			// ESP_LOGI(FNAME,"WIRELESS enabled");
+			if( blue_enable.get() == WL_WLAN ){
 				if( forwardMsg( s1, wl_vario_tx_q ))
-					ESP_LOGV(FNAME,"S1 RX bytes %d forward to wl_vario_tx_q port 8880", s1.length() );
-			if( blue_enable.get() == WL_BLUETOOTH )
+					ESP_LOGI(FNAME,"S1 RX bytes %d forward to wl_vario_tx_q port 8880", s1.length() );
+			}
+			else if( blue_enable.get() == WL_BLUETOOTH ){
+				// ESP_LOGI(FNAME,"WL_BLUETOOTH enabled");
 				if( forwardMsg( s1, bt_tx_q ))
-					ESP_LOGV(FNAME,"S1 RX bytes %d forward to bt_tx_q", s1.length() );
+					ESP_LOGI(FNAME,"S1 RX bytes %d forward to bt_tx_q", s1.length() );
+			}
 		}
-		if( serial1_route.get() == RT_SERIAL )  // only 0=DISABLE | 1=ENABLE
+		else if( serial1_route.get() == RT_SERIAL ){  // only 0=DISABLE | 1=ENABLE
 			if( forwardMsg( s1, s2_tx_q ))
-				ESP_LOGV(FNAME,"S1 RX bytes %d looped to s2_tx_q", s1.length() );
+				ESP_LOGI(FNAME,"S1 RX bytes %d looped to s2_tx_q", s1.length() );
+		}
 	}
 }
 
@@ -97,22 +102,28 @@ void Router::routeS1(){
 void Router::routeS2(){
 	SString s2;
 	if( pullMsg( s2_rx_q, s2) ){
-		ESP_LOGD(FNAME,"S2 RX len: %d bytes, Q:%d", s2.length(), bt_tx_q.isFull() );
+		ESP_LOGD(FNAME,"S2 RX len: %d bytes, Q full:%d", s2.length(), bt_tx_q.isFull() );
 		ESP_LOG_BUFFER_HEXDUMP(FNAME,s2.c_str(),s2.length(), ESP_LOG_DEBUG);
 		Protocols::parseNMEA( s2.c_str() );
 
 		if( serial2_route.get() == RT_WIRELESS )
 		{
-			if( blue_enable.get() == WL_WLAN)
+			// ESP_LOGI(FNAME,"S2 WIRELESS enabled");
+			if( blue_enable.get() == WL_WLAN){
+				// ESP_LOGI(FNAME,"WL_WLAN enabled");
 				if( forwardMsg( s2, wl_flarm_tx_q ))
-					ESP_LOGV(FNAME,"S2 RX bytes %d forward to bt_tx_q", s2.length() );
-			if( blue_enable.get() == WL_BLUETOOTH )
-					if( forwardMsg( s2, bt_tx_q ))
-						ESP_LOGV(FNAME,"S2 RX bytes %d forward to wl_flarm_tx_q port 8881", s2.length() );
+					ESP_LOGI(FNAME,"S2 RX bytes %d forward to wl_flarm_tx_q port 8881", s2.length() );
+			}
+			else if( blue_enable.get() == WL_BLUETOOTH ){
+				// ESP_LOGI(FNAME,"WL_BLUETOOTH enabled");
+				if( forwardMsg( s2, bt_tx_q ))
+					ESP_LOGI(FNAME,"S2 RX bytes %d forward to bt_tx_q", s2.length() );
+			}
 		}
-		if( serial2_route.get() & RT_SERIAL )
+		else if( serial2_route.get() & RT_SERIAL ){
 			if( forwardMsg( s2, s1_tx_q ))
 				ESP_LOGV(FNAME,"S2 RX bytes %d looped to s1_tx_q", s2.length() );
+		}
 	}
 }
 
