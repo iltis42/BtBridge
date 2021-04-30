@@ -8,4 +8,4 @@ set(EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/sensor/components)
 
 include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 
-project(sensor)
+project(btbridge)
