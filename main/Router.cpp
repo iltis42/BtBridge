@@ -78,7 +78,7 @@ void Router::routeS1(){
 		// ESP_LOG_BUFFER_HEXDUMP(FNAME,s1.c_str(),s1.length(), ESP_LOG_DEBUG);
 		Protocols::parseNMEA( s1.c_str() );
 
-		if( serial1_route.get() == RT_WIRELESS )
+		if( serial1_route.get() & RT_WIRELESS )
 		{
 			// ESP_LOGI(FNAME,"WIRELESS enabled");
 			if( blue_enable.get() == WL_WLAN ){
@@ -91,9 +91,9 @@ void Router::routeS1(){
 					ESP_LOGI(FNAME,"S1 RX bytes %d forward to bt_tx_q", s1.length() );
 			}
 		}
-		else if( serial1_route.get() == RT_SERIAL ){  // only 0=DISABLE | 1=ENABLE
+		if( serial1_route.get() & RT_SERIAL ){
 			if( forwardMsg( s1, s2_tx_q ))
-				ESP_LOGI(FNAME,"S1 RX bytes %d looped to s2_tx_q", s1.length() );
+				ESP_LOGI(FNAME,"S1 RX bytes %d forward to s2_tx_q", s1.length() );
 		}
 	}
 }
@@ -106,7 +106,7 @@ void Router::routeS2(){
 		ESP_LOG_BUFFER_HEXDUMP(FNAME,s2.c_str(),s2.length(), ESP_LOG_DEBUG);
 		Protocols::parseNMEA( s2.c_str() );
 
-		if( serial2_route.get() == RT_WIRELESS )
+		if( serial2_route.get() & RT_WIRELESS )
 		{
 			// ESP_LOGI(FNAME,"S2 WIRELESS enabled");
 			if( blue_enable.get() == WL_WLAN){
@@ -120,9 +120,9 @@ void Router::routeS2(){
 					ESP_LOGI(FNAME,"S2 RX bytes %d forward to bt_tx_q", s2.length() );
 			}
 		}
-		else if( serial2_route.get() & RT_SERIAL ){
+		if( serial2_route.get() & RT_SERIAL ){
 			if( forwardMsg( s2, s1_tx_q ))
-				ESP_LOGV(FNAME,"S2 RX bytes %d looped to s1_tx_q", s2.length() );
+				ESP_LOGV(FNAME,"S2 RX bytes %d forward to s1_tx_q", s2.length() );
 		}
 	}
 }

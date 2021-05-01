@@ -48,7 +48,7 @@ void Serial::serialHandlerS1(void *pvParameters){
 				ESP_LOGD(FNAME,"Serial 1 TX len: %d bytes", s.length() );
 				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_DEBUG);
 				int wr = Serial1.write( s.c_str(), s.length() );
-				ESP_LOGD(FNAME,"Serial 1 TX written: %d", wr);
+				ESP_LOGI(FNAME,"Serial 1 TX written: %d", wr);
 			}
 		}
 		int num = Serial1.available();
@@ -97,7 +97,7 @@ void Serial::serialHandlerS2(void *pvParameters){
 				ESP_LOGI(FNAME,"Serial 2 TX len: %d bytes", s.length() );
 				ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_INFO);
 				int wr = Serial2.write( s.c_str(), s.length() );
-				ESP_LOGD(FNAME,"Serial 2 TX written: %d", wr);
+				ESP_LOGI(FNAME,"Serial 2 TX written: %d", wr);
 			}
 		}
 		int num = Serial2.available();
