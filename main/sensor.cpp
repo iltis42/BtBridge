@@ -66,21 +66,26 @@ void sensor(void *args){
 		ota->begin();
 		ota->doSoftwareUpdate();
 	}
+
 	String wireless_id;
 	if( blue_enable.get() == WL_BLUETOOTH ) {
 		btsender.begin();
 	}
 	wireless_id += SetupCommon::getID();
-	Serial::begin();
-	Serial::taskStart();
+
 
 	if( blue_enable.get() == WL_BLUETOOTH ) {
 		btsender.selfTest();
 	}else if ( blue_enable.get() == WL_WLAN ){
 		wifi_init_softap();
 	}
+	delay( 1000 );
+	Serial::begin();
+	Serial::taskStart();
+
 	Version myVersion;
 	ESP_LOGI(FNAME,"Program Version %s", myVersion.version() );
+	ESP_LOGI(FNAME,"Wireless ID %s", wireless_id.c_str() );
 
 }
 
