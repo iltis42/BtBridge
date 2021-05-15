@@ -15,12 +15,10 @@
 
 #define QUEUE_SIZE 5
 
-extern RingBufCPP<SString, QUEUE_SIZE> wl_vario_tx_q;
-extern RingBufCPP<SString, QUEUE_SIZE> wl_flarm_tx_q;
-extern RingBufCPP<SString, QUEUE_SIZE> wl_aux_tx_q;
-extern RingBufCPP<SString, QUEUE_SIZE> wl_vario_rx_q;
-extern RingBufCPP<SString, QUEUE_SIZE> wl_flarm_rx_q;
-extern RingBufCPP<SString, QUEUE_SIZE> wl_aux_rx_q;
+extern RingBufCPP<SString, QUEUE_SIZE> wl_8880_tx_q;
+extern RingBufCPP<SString, QUEUE_SIZE> wl_8880_rx_q;
+extern RingBufCPP<SString, QUEUE_SIZE> wl_8881_tx_q;
+extern RingBufCPP<SString, QUEUE_SIZE> wl_8881_rx_q;
 
 extern RingBufCPP<SString, QUEUE_SIZE> bt_tx_q;
 extern RingBufCPP<SString, QUEUE_SIZE> bt_rx_q;
@@ -30,9 +28,6 @@ extern RingBufCPP<SString, QUEUE_SIZE> s2_tx_q;
 
 extern RingBufCPP<SString, QUEUE_SIZE> s1_rx_q;
 extern RingBufCPP<SString, QUEUE_SIZE> s2_rx_q;
-
-extern RingBufCPP<SString, QUEUE_SIZE> xcv_rx_q;
-extern RingBufCPP<SString, QUEUE_SIZE> xcv_tx_q;
 
 extern portMUX_TYPE btmux;
 
@@ -54,8 +49,6 @@ public:
   // route messages coming in from Bluetooth
   static void routeBT();
 
-  // add messages from XCVario to Router
-  static void sendXCV(char * s);
 
 private:
 

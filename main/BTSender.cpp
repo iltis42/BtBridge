@@ -40,7 +40,7 @@ int BTSender::queueFull() {
 			return 1;
 	}
 	else if( blue_enable.get() == WL_WLAN ){
-		if( wl_vario_tx_q.isFull() )
+		if( wl_8880_tx_q.isFull() )
 			return 1;
 	}
 	return 0;

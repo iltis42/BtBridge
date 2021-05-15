@@ -46,6 +46,9 @@ void Protocols::parseNMEA( char *str ){
 			ESP_LOGI(FNAME,"Flarm::bincom %d", Flarm::bincom  );
 		}
 	}
+	else if( !strncmp( str, "$PFLAX,", 6 ) ){
+		Flarm::parsePFLAX( str );
+	}
 }
 
 

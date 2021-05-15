@@ -121,14 +121,14 @@ void Flarm::parsePFLAU( char *pflau ) {
 	timeout = 10;
 }
 
-void Flarm::parsePFLAX( SString &msg ) {
+void Flarm::parsePFLAX( char * msg ) {
 	ESP_LOGI(FNAME,"parsePFLAX");
-	ESP_LOG_BUFFER_HEXDUMP(FNAME, msg.c_str(), msg.length(), ESP_LOG_INFO);
+	ESP_LOG_BUFFER_HEXDUMP(FNAME, msg, strlen(msg), ESP_LOG_INFO);
 	int start=0;
-    if( !strncmp( msg.c_str(), "\n", 1 )  ){
+    if( !strncmp( msg, "\n", 1 )  ){
     	start=1;
     }
-	if( !strncmp( (msg.c_str())+start, "$PFLAX,", 6 ) ){
+	if( !strncmp( msg+start, "$PFLAX,", 6 ) ){
 		Flarm::bincom = 5;
 		ESP_LOGI(FNAME,"Flarm::bincom %d", Flarm::bincom  );
 	}

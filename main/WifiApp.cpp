@@ -40,9 +40,8 @@ typedef struct xcv_sock_server {
 	int port;
 }sock_server_t;
 
-static sock_server_t XCVario = { .txbuf = &wl_vario_tx_q, .rxbuf = &wl_vario_rx_q, .port=8880 };
-static sock_server_t FLARM   = { .txbuf = &wl_flarm_tx_q, .rxbuf = &wl_flarm_rx_q, .port=8881 };
-static sock_server_t AUX     = { .txbuf = &wl_aux_tx_q,   .rxbuf = &wl_aux_rx_q,   .port=8882 };
+static sock_server_t S1_8880 = { .txbuf = &wl_8880_tx_q, .rxbuf = &wl_8880_rx_q, .port=8880 };
+static sock_server_t S2_8881   = { .txbuf = &wl_8881_tx_q, .rxbuf = &wl_8881_rx_q, .port=8881 };
 
 int create_socket( int port ){
 	struct sockaddr_in serverAddress;
@@ -62,7 +61,7 @@ int create_socket( int port ){
 		return -1;
 	}
 	int flag = 1;
-	// this is really realtime data, so sent TCP_NODELAY for XCVario data exchange
+	// this is really realtime data, so sent TCP_NODELAY for S1_8880 data exchange
 	setsockopt(mysock, IPPROTO_TCP, TCP_NODELAY, (char *) &flag, sizeof(int));
 	ESP_LOGI(FNAME, "bind port: %d", port  );
 	// Flag the socket as listening for new connections.
@@ -214,9 +213,8 @@ void wifi_init_softap()
 		ESP_ERROR_CHECK(esp_wifi_start());
 		ESP_ERROR_CHECK(esp_wifi_set_max_tx_power(8));
 
-		xTaskCreatePinnedToCore(&socket_server, "socket_srv_0", 4096, &XCVario, 17, 0, 0);  // 10
-		xTaskCreatePinnedToCore(&socket_server, "socket_ser_1", 4096, &FLARM, 18, 0, 0);  // 10
-		xTaskCreatePinnedToCore(&socket_server, "socket_ser_2", 4096, &AUX, 16, 0, 0);  // 10
+		xTaskCreatePinnedToCore(&socket_server, "socket_srv_0", 4096, &S1_8880, 17, 0, 0);  // 10
+		xTaskCreatePinnedToCore(&socket_server, "socket_ser_1", 4096, &S2_8881, 18, 0, 0);  // 10
 
 		ESP_LOGI(FNAME, "wifi_init_softap finished SUCCESS. SSID:%s password:%s channel:%d", (char *)wc.ap.ssid, (char *)wc.ap.password, wc.ap.channel );
 	}

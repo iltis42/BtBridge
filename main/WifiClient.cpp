@@ -165,7 +165,7 @@ void WifiClient::tcp_client(void *pvParam){
         	ESP_LOGI(FNAME, "socket %d connected", sock);
         }
         SString send;
-    	Router::pullMsg( wl_vario_tx_q, send);
+    	Router::pullMsg( wl_8880_tx_q, send);
         if( send.length() ){
         	ESP_LOGI(FNAME, "have data to send");
         	if( write(sock , send.c_str() , send.length() ) < 0)

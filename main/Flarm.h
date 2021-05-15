@@ -10,7 +10,7 @@ class Flarm {
 public:
 	static void parsePFLAU( char *pflau );
 	static void parsePFLAA( char *pflaa );
-	static void parsePFLAX( SString &msg );
+	static void parsePFLAX( char *msg );
 	static void parseGPRMC( char *gprmc );
  	static inline int alarmLevel(){ return AlarmLevel; };
  	static void progress();

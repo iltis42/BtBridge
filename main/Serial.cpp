@@ -45,8 +45,8 @@ void Serial::serialHandlerS1(void *pvParameters){
 		if ( !s1_tx_q.isEmpty() && Serial1.availableForWrite() ){
 			ESP_LOGD(FNAME,"Serial Data and avail");
 			while( Router::pullMsg( s1_tx_q, s ) ) {
-				ESP_LOGD(FNAME,"Serial 1 TX len: %d bytes", s.length() );
-				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_DEBUG);
+				ESP_LOGI(FNAME,"Serial 1 TX len: %d bytes", s.length() );
+				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_INFO);
 				int wr = Serial1.write( s.c_str(), s.length() );
 				ESP_LOGI(FNAME,"Serial 1 TX written: %d", wr);
 			}
@@ -93,9 +93,8 @@ void Serial::serialHandlerS2(void *pvParameters){
 		SString s;
 		if ( !s2_tx_q.isEmpty() && Serial2.availableForWrite() ){
 			if( Router::pullMsg( s2_tx_q, s ) ) {
-				ESP_LOGI(FNAME,"Serial Data and avail");
 				ESP_LOGI(FNAME,"Serial 2 TX len: %d bytes", s.length() );
-				ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_INFO);
+				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_INFO);
 				int wr = Serial2.write( s.c_str(), s.length() );
 				ESP_LOGI(FNAME,"Serial 2 TX written: %d", wr);
 			}
