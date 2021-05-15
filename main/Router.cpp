@@ -94,7 +94,6 @@ void Router::routeS2(){
 		// ESP_LOGD(FNAME,"S2 RX len: %d bytes, Q full:%d", s2.length(), bt_tx_q.isFull() );
 		// ESP_LOG_BUFFER_HEXDUMP(FNAME,s2.c_str(),s2.length(), ESP_LOG_DEBUG);
 		Protocols::parseNMEA( s2.c_str() );
-
 		if( serial2_route.get() & RT_WIRELESS )
 		{
 			// ESP_LOGI(FNAME,"S2 WIRELESS enabled");
@@ -125,7 +124,6 @@ void Router::routeWLAN(){
 	if( pullMsg( wl_8880_rx_q, wlmsg ) ){
 		ESP_LOGI(FNAME,"WIFI RX len: %d bytes, S1 Q full:%d", wlmsg.length(), s1_tx_q.isFull() );
 		ESP_LOG_BUFFER_HEXDUMP(FNAME,wlmsg.c_str(),wlmsg.length(), ESP_LOG_INFO);
-		Protocols::parseNMEA( wlmsg.c_str() );
 		if( serial1_route.get() & RT_WIRELESS )
 			if( forwardMsg( wlmsg, s1_tx_q ) )
 				ESP_LOGI(FNAME,"Send to S1, from WLAN TCP port 8880 received %d bytes", wlmsg.length() );
@@ -133,7 +131,6 @@ void Router::routeWLAN(){
 	if( pullMsg( wl_8881_rx_q, wlmsg ) ){
 		ESP_LOGI(FNAME,"WIFI RX len: %d bytes, S2 Q full:%d", wlmsg.length(), s2_tx_q.isFull() );
 		ESP_LOG_BUFFER_HEXDUMP(FNAME,wlmsg.c_str(),wlmsg.length(), ESP_LOG_INFO);
-		Protocols::parseNMEA( wlmsg.c_str() );
 		if( serial2_route.get() & RT_WIRELESS )
 			if( forwardMsg( wlmsg, s2_tx_q ) )
 				ESP_LOGI(FNAME,"Send to S2 device, from WLAN TCP port 8881 received %d bytes", wlmsg.length() );
@@ -146,7 +143,6 @@ void Router::routeBT(){
 		return;
 	SString bt;
 	if( pullMsg( bt_rx_q, bt ) ){
-		Protocols::parseNMEA( bt.c_str() );
 		if( serial1_route.get() & RT_WIRELESS )  // Serial data TX from bluetooth enabled ?
 			if( forwardMsg( bt, s1_tx_q ) )
 				ESP_LOGV(FNAME,"Send to S1 device, BT received %d bytes", bt.length() );
