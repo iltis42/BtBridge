@@ -83,6 +83,16 @@ void sensor(void *args){
 	Serial::begin();
 	Serial::taskStart();
 
+	ESP_LOGI(FNAME,"For Serial Interface Selftest connect a cable bridging RX pin with TX pin on both serial interfaces" );
+	if( Serial::selfTest( 1 ) )
+		ESP_LOGI(FNAME,"Serial Interface Selftest S1: OK" );
+	else
+		ESP_LOGW(FNAME,"Serial Interface Selftest S1: FAILED" );
+	if( Serial::selfTest( 2 ) )
+		ESP_LOGI(FNAME,"Serial Interface Selftest S2: OK" );
+	else
+		ESP_LOGW(FNAME,"Serial Interface Selftest S2: FAILED" );
+
 	Version myVersion;
 	ESP_LOGI(FNAME,"Program Version %s", myVersion.version() );
 	ESP_LOGI(FNAME,"Wireless ID %s", wireless_id.c_str() );
