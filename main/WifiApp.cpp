@@ -133,9 +133,10 @@ void socket_server(void *setup) {
 					if( !client_dead ){
 						// ESP_LOGI(FNAME, "read from client %d", client);
 						SString tcprx;
-						ssize_t sizeRead = recv(client, tcprx.c_str(), SSTRLEN-1, MSG_DONTWAIT);
+						char r[SSTRLEN+1];
+						ssize_t sizeRead = recv(client, r, SSTRLEN-1, MSG_DONTWAIT);
 						if (sizeRead > 0) {
-							tcprx.setLen( sizeRead );
+							tcprx.set( r, sizeRead );
 							Router::forwardMsg( tcprx, *(config->rxbuf) );
 							ESP_LOGV(FNAME, "tcp read from port %d size: %d data: %s", config->port, sizeRead, tcprx.c_str() );
 						}

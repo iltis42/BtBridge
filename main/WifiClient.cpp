@@ -180,9 +180,10 @@ void WifiClient::tcp_client(void *pvParam){
         	ESP_LOGI(FNAME, "socket send success");
         }
         SString rec;
-        num = recv(sock, rec.c_str(), SSTRLEN-1, MSG_DONTWAIT );
+        char r[SSTRLEN+1];
+        num = recv(sock, r, SSTRLEN-1, MSG_DONTWAIT );
         if(num > 0){
-        	rec.setLen( num );
+        	rec.set( r, num );
         	ESP_LOGV(FNAME, "socket read %d bytes: %s", num, rec.c_str() );
         	Protocols::parseNMEA( rec.c_str() );
         	timeout = 0;

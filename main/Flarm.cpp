@@ -53,7 +53,7 @@ $PFLAA,0,-1234,1234,220,2,DD8F12,180,,30,-1.4,1*
 
 */
 
-void Flarm::parsePFLAA( char *pflaa ){
+void Flarm::parsePFLAA( const char *pflaa ){
 
 }
 
@@ -92,7 +92,7 @@ eg2. $GPRMC,225446,A,4916.45,N,12311.12,W,000.5,054.7,191194,020.3,E*68
 
 
 */
-void Flarm::parseGPRMC( char *gprmc ) {
+void Flarm::parseGPRMC( const char *gprmc ) {
 	float time;
 	int date;
 	char warn;
@@ -111,7 +111,7 @@ void Flarm::parseGPRMC( char *gprmc ) {
 }
 
 
-void Flarm::parsePFLAU( char *pflau ) {
+void Flarm::parsePFLAU( const char *pflau ) {
 	int cs;
 	int id;
 	sscanf( pflau, "$PFLAU,%d,%d,%d,%d,%d,%d,%d,%d,%d,%x*%02x",&RX,&TX,&GPS,&Power,&AlarmLevel,&RelativeBearing,&AlarmType,&RelativeVertical,&RelativeDistance,&id,&cs);
@@ -121,7 +121,7 @@ void Flarm::parsePFLAU( char *pflau ) {
 	timeout = 10;
 }
 
-void Flarm::parsePFLAX( char * msg ) {
+void Flarm::parsePFLAX( const char * msg ) {
 	ESP_LOGI(FNAME,"parsePFLAX");
 	ESP_LOG_BUFFER_HEXDUMP(FNAME, msg, strlen(msg), ESP_LOG_INFO);
 	int start=0;

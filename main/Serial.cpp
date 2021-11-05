@@ -32,10 +32,11 @@ some sentences might be lost or truncated.
 */
 
 
-int sim=100;
-int numS1=0;
 int long_press=0;
 #define HEARTBEAT_PERIOD_MS_SERIAL 25
+
+char Serial::rxbuf1[SERIAL_STRLEN];
+char Serial::rxbuf2[SERIAL_STRLEN];
 
 // Serial Handler  ttyS1, S1, port 8881
 void Serial::serialHandlerS1(void *pvParameters){
@@ -59,18 +60,20 @@ void Serial::serialHandlerS1(void *pvParameters){
 				num=SSTRLEN;
 			}
 			// ESP_LOGI(FNAME,"Flarm::bincom %d", Flarm::bincom  );
-			if( (numS1 == num) || Flarm::bincom ){    // normally wait unit sentence has ended, or in binary mode just continue
-				int numread = Serial1.read( s.c_str(), num );
-				ESP_LOGI(FNAME,"Serial 1 RX bytes read: %d  bincom: %d", numread,  Flarm::bincom  );
-				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),numread, ESP_LOG_INFO);
-				s.setLen( numread );
-				Router::forwardMsg( s, s1_rx_q );
-				numS1 = 0;
+			int numread = 0;
+			if( Flarm::bincom ){    // normally wait unit sentence has ended, or in binary mode just continue
+				numread = Serial1.read( rxbuf1, num );
 			}
-			else
-				numS1 = num;
+			else{
+				numread = Serial1.readLine( rxbuf1, SERIAL_STRLEN );
+			}
+			if( numread ){
+				ESP_LOGI(FNAME,"Serial 1 RX bytes read: %d  bincom: %d", numread,  Flarm::bincom  );
+				// ESP_LOG_BUFFER_HEXDUMP(FNAME,rxbuf1,numread, ESP_LOG_INFO);
+				s.set( rxbuf1, numread );
+				Router::forwardMsg( s, s1_rx_q );
+			}
 		}
-
 		if( Switch::isClosed() ){
 			long_press++;
 			if( long_press > 10 ){
@@ -86,7 +89,6 @@ void Serial::serialHandlerS1(void *pvParameters){
 	}
 }
 
-int numS2=0;
 // ttyS2, port 8882
 void Serial::serialHandlerS2(void *pvParameters){
 	while(1) {
@@ -106,19 +108,20 @@ void Serial::serialHandlerS2(void *pvParameters){
 				ESP_LOGW(FNAME,"Serial 2 RX Overrun >= %d bytes avail: %d, Bytes", SSTRLEN, num);
 				num=SSTRLEN;
 			}
-			if( (numS2 == num) || Flarm::bincom ){  // normally wait unit sentence has ended, or in binary mode just continue
-				int numread = Serial2.read( s.c_str(), num );
-				ESP_LOGI(FNAME,"Serial 2 RX bytes read: %d", numread );
-				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),numread, ESP_LOG_INFO);
-				s.setLen( numread );
-				Router::forwardMsg( s, s2_rx_q );
-				s.clear();
-				numS2 = 0;
+			int numread = 0;
+			if( Flarm::bincom ){    // normally wait unit sentence has ended, or in binary mode just continue
+				numread = Serial2.read( rxbuf2, num );
 			}
-			else
-				numS2 = num;
+			else{
+				numread = Serial2.readLine( rxbuf2, SERIAL_STRLEN );
+			}
+			if( numread ){
+				ESP_LOGI(FNAME,"Serial 2 RX bytes read: %d", numread );
+				// ESP_LOG_BUFFER_HEXDUMP(FNAME,rxbuf2,numread, ESP_LOG_INFO);
+				s.set( rxbuf2, numread );
+				Router::forwardMsg( s, s2_rx_q );
+			}
 		}
-
 		esp_task_wdt_reset();
 		vTaskDelay( HEARTBEAT_PERIOD_MS_SERIAL/portTICK_PERIOD_MS );  // 48 bytes each 20 mS traffic at 19.200 baud
 	}
@@ -188,6 +191,8 @@ void Serial::begin(){
 	if( serial1_speed.get() != 0  || blue_enable.get() != 0 ){
 		int baudrate = baud[serial1_speed.get()];
 		if( baudrate != 0 ) {
+			gpio_pullup_en( GPIO_NUM_16 );
+			gpio_pullup_en( GPIO_NUM_17 );
 			ESP_LOGI(FNAME,"Serial Interface ttyS1 enabled with serial speed: %d baud: %d tx_inv: %d rx_inv: %d",  serial1_speed.get(), baud[serial1_speed.get()], serial1_tx_inverted.get(), serial1_rx_inverted.get() );
 			if( serial1_pins_twisted.get() ){
 				if( serial1_tx_enable.get() ){
@@ -207,13 +212,15 @@ void Serial::begin(){
 					gpio_pullup_dis( GPIO_NUM_16 );
 				}
 			}
-			Serial1.setRxBufferSize(256);
+			Serial1.setRxBufferSize(512);
 		}
 		// need this for bluetooth
 	}
 	if( serial2_speed.get() != 0  ){
 		ESP_LOGI(FNAME,"Serial Interface ttyS2 enabled with serial speed: %d baud: %d tx_inv: %d rx_inv: %d",  serial2_speed.get(), baud[serial2_speed.get()], serial2_tx_inverted.get(), serial2_rx_inverted.get() );
 		if( serial2_pins_twisted.get() ){  //   speed, RX, TX, invRX, invTX
+			gpio_pullup_en( GPIO_NUM_19 );
+			gpio_pullup_en( GPIO_NUM_18 );
 			if( serial2_tx_enable.get() ){
 				Serial2.begin(baud[serial2_speed.get()],SERIAL_8N1,19,18, serial2_rx_inverted.get(), serial2_tx_inverted.get());   //  IO4: RXD2,  IO18: TXD2
 			}else{
@@ -232,7 +239,7 @@ void Serial::begin(){
 				gpio_pullup_dis( GPIO_NUM_19 );
 			}
 		}
-		Serial2.setRxBufferSize(256);
+		Serial2.setRxBufferSize(512);
 	}
 }
 

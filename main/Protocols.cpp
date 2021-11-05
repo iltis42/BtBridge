@@ -29,7 +29,7 @@ int countPFLAU=0;
 
 int tickNMEA=0;
 // The XCVario Protocol or Cambridge CAI302 protocol to adjust MC,Ballast,Bugs.
-void Protocols::parseNMEA( char *str ){
+void Protocols::parseNMEA( const char *str ){
 	// ESP_LOGI(FNAME,"parseNMEA %s", str);
 	tickNMEA++;
 	if( !strncmp( str, "$PFLAU,", 6 )) {

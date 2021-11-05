@@ -4,66 +4,7 @@
 #include "RingBufHelpers.h"
 #include <cstring>
 #include "logdef.h"
-
-
-#define SSTRLEN 250
-
-class SString {
-public:
-	inline SString() { clear();
-	}
-	inline SString( SString& os) {
-		len = SSTRLEN-1;
-		if( os.length() < len)
-			len = os.length();
-		memcpy(str,os.c_str(),len);
-		str[len] = 0;
-	}
-	inline SString( const char * s ) {
-		len = SSTRLEN-1;
-		if( strlen(s) < len)
-			len = strlen(s);
-		memcpy(str,s,len);
-		str[len] = 0;
-	}
-	inline void add( char c ) {
-		if( len < SSTRLEN-1 )
-			str[len++] = c;
-	}
-	inline void add( char *s ) {   // add pure strings
-		len = SSTRLEN-1;
-		if( strlen(s) < len)
-			len = strlen(s);
-		memcpy(str,s,len);
-		str[len] = 0;
-	}
-	inline void addl( char *s, int alen ) {
-			len = SSTRLEN-1;
-			if( alen < len)
-				len = alen;
-			memcpy(str,s,len);
-			str[len] = 0;
-	}
-	inline void append( char *s, int alen ) {
-		if( alen+len < SSTRLEN-1 ){
-			memcpy(str+len,s,alen);
-			str[alen+len] = 0;
-			len += alen;
-		}
-	}
-	inline void clear() {
-		memset(str,0,SSTRLEN);
-		len = 0;
-	}
-	inline void setLen( int alen ) {
-		len = alen;
-	}
-	inline char *c_str() { return str; };
-	inline size_t length() { return len; }
-private:
-	char str[SSTRLEN];
-	int  len;
-};
+#include "SString.h"
 
 
 template <typename Type, size_t MaxElements>

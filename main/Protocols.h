@@ -18,7 +18,7 @@ class Protocols {
 public:
 	Protocols();
 	virtual ~Protocols( );
-	static void parseNMEA( char *str );
+	static void parseNMEA( const char *str );
 	static int getCheckSum(char * s);
 private:
 
