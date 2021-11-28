@@ -22,6 +22,7 @@ public:
 private:
   static char rxbuf1[SERIAL_STRLEN];
   static char rxbuf2[SERIAL_STRLEN];
+  static bool _selfTest;
 
 
 };
