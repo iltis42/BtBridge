@@ -29,7 +29,7 @@ This limits the overall channel capacity to 5 sentences per second (at 4.8k Baud
 If  too  many  sentences  are  produced  with  regard  to  the  available  transmission  speed,
 some sentences might be lost or truncated.
 
-*/
+ */
 
 
 int long_press=0;
@@ -37,53 +37,56 @@ int long_press=0;
 
 char Serial::rxbuf1[SERIAL_STRLEN];
 char Serial::rxbuf2[SERIAL_STRLEN];
+bool Serial::_selfTest = false;
 
 // Serial Handler  ttyS1, S1, port 8881
 void Serial::serialHandlerS1(void *pvParameters){
 	while(1) {
-		SString s;
-		// Serial Interface tty1 send
-		if ( !s1_tx_q.isEmpty() && Serial1.availableForWrite() ){
-			ESP_LOGD(FNAME,"Serial Data and avail");
-			while( Router::pullMsg( s1_tx_q, s ) ) {
-				ESP_LOGI(FNAME,"Serial 1 TX len: %d bytes", s.length() );
-				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_INFO);
-				int wr = Serial1.write( s.c_str(), s.length() );
-				ESP_LOGI(FNAME,"Serial 1 TX written: %d", wr);
+		if( !_selfTest ){
+			SString s;
+			// Serial Interface tty1 send
+			if ( !s1_tx_q.isEmpty() && Serial1.availableForWrite() ){
+				ESP_LOGD(FNAME,"Serial Data and avail");
+				while( Router::pullMsg( s1_tx_q, s ) ) {
+					ESP_LOGI(FNAME,"Serial 1 TX len: %d bytes", s.length() );
+					// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_INFO);
+					int wr = Serial1.write( s.c_str(), s.length() );
+					ESP_LOGI(FNAME,"Serial 1 TX written: %d", wr);
+				}
 			}
+			int num = Serial1.available();
+			if( num > 0 ) {
+				// ESP_LOGI(FNAME,"Serial 1 RX avail %d bytes", num );
+				if( num >= SSTRLEN ) {
+					ESP_LOGW(FNAME,"Serial 1 Overrun RX >= %d bytes avail: %d, Bytes", SSTRLEN, num);
+					num=SSTRLEN;
+				}
+				// ESP_LOGI(FNAME,"Flarm::bincom %d", Flarm::bincom  );
+				int numread = 0;
+				if( Flarm::bincom ){    // normally wait unit sentence has ended, or in binary mode just continue
+					numread = Serial1.read( rxbuf1, num );
+				}
+				else{
+					numread = Serial1.readLine( rxbuf1, SERIAL_STRLEN );
+				}
+				if( numread ){
+					ESP_LOGI(FNAME,"Serial 1 RX bytes read: %d  bincom: %d", numread,  Flarm::bincom  );
+					// ESP_LOG_BUFFER_HEXDUMP(FNAME,rxbuf1,numread, ESP_LOG_INFO);
+					s.set( rxbuf1, numread );
+					Router::forwardMsg( s, s1_rx_q );
+				}
+			}
+			if( Switch::isClosed() ){
+				long_press++;
+				if( long_press > 10 ){
+					ESP_LOGI(FNAME,"Switch long pressed, restart!");
+					// software_update.set(1);
+					esp_restart();
+				}
+			}
+			else
+				long_press = 0;
 		}
-		int num = Serial1.available();
-		if( num > 0 ) {
-			// ESP_LOGI(FNAME,"Serial 1 RX avail %d bytes", num );
-			if( num >= SSTRLEN ) {
-				ESP_LOGW(FNAME,"Serial 1 Overrun RX >= %d bytes avail: %d, Bytes", SSTRLEN, num);
-				num=SSTRLEN;
-			}
-			// ESP_LOGI(FNAME,"Flarm::bincom %d", Flarm::bincom  );
-			int numread = 0;
-			if( Flarm::bincom ){    // normally wait unit sentence has ended, or in binary mode just continue
-				numread = Serial1.read( rxbuf1, num );
-			}
-			else{
-				numread = Serial1.readLine( rxbuf1, SERIAL_STRLEN );
-			}
-			if( numread ){
-				ESP_LOGI(FNAME,"Serial 1 RX bytes read: %d  bincom: %d", numread,  Flarm::bincom  );
-				// ESP_LOG_BUFFER_HEXDUMP(FNAME,rxbuf1,numread, ESP_LOG_INFO);
-				s.set( rxbuf1, numread );
-				Router::forwardMsg( s, s1_rx_q );
-			}
-		}
-		if( Switch::isClosed() ){
-			long_press++;
-			if( long_press > 10 ){
-				ESP_LOGI(FNAME,"Switch long pressed, restart!");
-				// software_update.set(1);
-				esp_restart();
-			}
-		}
-		else
-			long_press = 0;
 		esp_task_wdt_reset();
 		vTaskDelay( HEARTBEAT_PERIOD_MS_SERIAL/portTICK_PERIOD_MS );
 	}
@@ -92,34 +95,36 @@ void Serial::serialHandlerS1(void *pvParameters){
 // ttyS2, port 8882
 void Serial::serialHandlerS2(void *pvParameters){
 	while(1) {
-		SString s;
-		if ( !s2_tx_q.isEmpty() && Serial2.availableForWrite() ){
-			if( Router::pullMsg( s2_tx_q, s ) ) {
-				ESP_LOGI(FNAME,"Serial 2 TX len: %d bytes", s.length() );
-				// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_INFO);
-				int wr = Serial2.write( s.c_str(), s.length() );
-				ESP_LOGI(FNAME,"Serial 2 TX written: %d", wr);
+		if( !_selfTest ){
+			SString s;
+			if ( !s2_tx_q.isEmpty() && Serial2.availableForWrite() ){
+				if( Router::pullMsg( s2_tx_q, s ) ) {
+					ESP_LOGI(FNAME,"Serial 2 TX len: %d bytes", s.length() );
+					// ESP_LOG_BUFFER_HEXDUMP(FNAME,s.c_str(),s.length(), ESP_LOG_INFO);
+					int wr = Serial2.write( s.c_str(), s.length() );
+					ESP_LOGI(FNAME,"Serial 2 TX written: %d", wr);
+				}
 			}
-		}
-		int num = Serial2.available();
-		if( num > 0 ) {
-			// ESP_LOGI(FNAME,"Serial 2 RX avail %d bytes", num );
-			if( num >= SSTRLEN ) {
-				ESP_LOGW(FNAME,"Serial 2 RX Overrun >= %d bytes avail: %d, Bytes", SSTRLEN, num);
-				num=SSTRLEN;
-			}
-			int numread = 0;
-			if( Flarm::bincom ){    // normally wait unit sentence has ended, or in binary mode just continue
-				numread = Serial2.read( rxbuf2, num );
-			}
-			else{
-				numread = Serial2.readLine( rxbuf2, SERIAL_STRLEN );
-			}
-			if( numread ){
-				ESP_LOGI(FNAME,"Serial 2 RX bytes read: %d", numread );
-				// ESP_LOG_BUFFER_HEXDUMP(FNAME,rxbuf2,numread, ESP_LOG_INFO);
-				s.set( rxbuf2, numread );
-				Router::forwardMsg( s, s2_rx_q );
+			int num = Serial2.available();
+			if( num > 0 ) {
+				// ESP_LOGI(FNAME,"Serial 2 RX avail %d bytes", num );
+				if( num >= SSTRLEN ) {
+					ESP_LOGW(FNAME,"Serial 2 RX Overrun >= %d bytes avail: %d, Bytes", SSTRLEN, num);
+					num=SSTRLEN;
+				}
+				int numread = 0;
+				if( Flarm::bincom ){    // normally wait unit sentence has ended, or in binary mode just continue
+					numread = Serial2.read( rxbuf2, num );
+				}
+				else{
+					numread = Serial2.readLine( rxbuf2, SERIAL_STRLEN );
+				}
+				if( numread ){
+					ESP_LOGI(FNAME,"Serial 2 RX bytes read: %d", numread );
+					// ESP_LOG_BUFFER_HEXDUMP(FNAME,rxbuf2,numread, ESP_LOG_INFO);
+					s.set( rxbuf2, numread );
+					Router::forwardMsg( s, s2_rx_q );
+				}
 			}
 		}
 		esp_task_wdt_reset();
@@ -147,6 +152,7 @@ bool Serial::selfTest(int num){
 		mySerial = &Serial2;
 	else
 		return false;
+	_selfTest = true;
 	ESP_LOGI(FNAME,"Serial %d selftest", num );
 	delay(100);  // wait for serial hardware init
 	std::string test( PROGMEM "The quick brown fox jumps over the lazy dog" );
@@ -159,20 +165,22 @@ bool Serial::selfTest(int num){
 		ESP_LOGI(FNAME,"Serial not avail for sending, abort");
 		return false;
 	}
-	char recv[50];
+	char recv[100];
+	memset(recv,0,100);
 	int numread = 0;
 	for( int i=1; i<10; i++ ){
-			int avail = mySerial->available();
-			if( avail >= tx ){
-				if( avail > tx )
-					avail = tx+1;
-				numread = mySerial->read( recv, avail );
-				ESP_LOGI(FNAME,"Serial RX bytes read: %d %s", numread, recv );
-				break;
-			}
+		int avail = mySerial->available();
+		if( avail >= tx ){
+			if( avail > tx )
+				avail = tx+1;
+			numread = mySerial->read( recv, avail );
+			ESP_LOGI(FNAME,"Serial RX bytes read: %d %s", numread, recv );
+			break;
+		}
 		delay( 30 );
 		ESP_LOGI(FNAME,"Serial bytes avail: %d", numread );
 	}
+	_selfTest = false;
 	std::string r( recv );
 	if( r.find( test ) != std::string::npos )  {
 		ESP_LOGI(FNAME,"Serial Test PASSED");
@@ -255,7 +263,7 @@ void Serial::taskStart(){
 	}
 
 	if( serial2_speed.get() != 0 || serial1_speed.get() != 0 ){
-			xTaskCreatePinnedToCore(&Serial::routerTask, "routerTask", 4096, NULL, 29, 0, 0);
+		xTaskCreatePinnedToCore(&Serial::routerTask, "routerTask", 4096, NULL, 29, 0, 0);
 	}
 }
 
