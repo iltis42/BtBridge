@@ -28,20 +28,19 @@ std::vector<SetupCommon *> SetupCommon::entries;
 char SetupCommon::_ID[14];
 
 
-
 SetupNG<int>  			blue_enable( "WIRELESS" , WL_BLUETOOTH );
 SetupNG<int>  			factory_reset( "FACTORY_RES" , 0 );
 SetupNG<int>  			rot_default( "ROTARY_DEFAULT", 0 );
 
 SetupNG<int>  			serial1_speed( "SERIAL1_SPEED", 3 );   // 19200 baud
-SetupNG<int>  			serial1_route( "SERIAL1_RT", 1 );
+SetupNG<int>  			serial1_route( "SERIAL1_RT", RT_BOTH );
 SetupNG<int>  			serial1_pins_twisted( "SERIAL1_PINS", 0 );
 SetupNG<int>  			serial1_tx_inverted( "SERIAL1_TX_INV", RS232_INVERTED );
 SetupNG<int>  			serial1_rx_inverted( "SERIAL1_RX_INV", RS232_INVERTED );
 SetupNG<int>  			serial1_tx_enable( "SER1_TX_ENA", 1 );
 
 SetupNG<int>  			serial2_speed( "SERIAL2_SPEED", 3 );   // 19200 baud
-SetupNG<int>  			serial2_route( "SERIAL2_RT", 1 );
+SetupNG<int>  			serial2_route( "SERIAL2_RT", RT_BOTH );
 SetupNG<int>  			serial2_pins_twisted( "SERIAL2_PINS", 1 );
 SetupNG<int>  			serial2_tx_inverted( "SERIAL2_TX_INV", RS232_INVERTED );
 SetupNG<int>  			serial2_rx_inverted( "SERIAL2_RX_INV", RS232_INVERTED );

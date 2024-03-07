@@ -122,8 +122,8 @@ void start_dhcp_server(void)
 	tcpip_adapter_ip_info_t info;
 	memset(&info, 0, sizeof(info));
 
-	IP4_ADDR(&info.ip, 192, 168, 0, 1);
-	IP4_ADDR(&info.gw, 192, 168, 0, 1); //ESP acts as router, so gw addr will be its own addr
+	IP4_ADDR(&info.ip, 192, 168, 4, 1);
+	IP4_ADDR(&info.gw, 192, 168, 4, 1); //ESP acts as router, so gw addr will be its own addr
 	IP4_ADDR(&info.netmask, 255, 255, 255, 0);
 	ESP_ERROR_CHECK(tcpip_adapter_set_ip_info(TCPIP_ADAPTER_IF_AP, &info));
 	// start the DHCP server   

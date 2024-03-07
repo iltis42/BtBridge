@@ -80,8 +80,10 @@ void sensor(void *args){
 		wifi_init_softap();
 	}
 	delay( 1000 );
-	Serial::begin();
-	Serial::taskStart();
+	if( !doUpdate ) {
+		Serial::begin();
+		Serial::taskStart();
+	}
 
 	ESP_LOGI(FNAME,"For Serial Interface Selftest connect a cable bridging RX pin with TX pin on both serial interfaces" );
 	if( Serial::selfTest( 1 ) )

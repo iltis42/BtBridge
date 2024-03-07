@@ -109,8 +109,10 @@ std::string WifiClient::scan( void ){
 		ESP_ERROR_CHECK(esp_wifi_scan_start(NULL, true));
 		ESP_ERROR_CHECK(esp_wifi_scan_get_ap_num(&ap_count));
 		ESP_LOGI(FNAME, "Total APs scanned = %u", ap_count);
-		if( Switch::isClosed() )
+		if( Switch::isClosed() ){
+			ESP_LOGI(FNAME, "Button Pressed: Abort");
 			break;
+		}
 		ESP_ERROR_CHECK(esp_wifi_scan_get_ap_records(&number, ap_info));
 		for (int i = 0; (i < DEFAULT_SCAN_LIST_SIZE) && (i < ap_count); i++) {
 			if( strncmp( (char*)ap_info[i].ssid, "XCVARIO-", 8 ) == 0 )

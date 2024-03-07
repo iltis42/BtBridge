@@ -32,21 +32,24 @@ void OTA::begin(){
 void OTA::doSoftwareUpdate(){
 	ESP_LOGI(FNAME,"Now start Wifi OTA");
 	// xTaskCreate(&systemRebootTask, "rebootTask", 2048, NULL, 5, NULL);
-
 	init_wifi_softap(&OTA_server);
+	int count = 0;
 	for( int i=900; i>0; i-- ) {
-		char txt[40];
-		sprintf(txt,"Timeout in %d sec  ", i);
 		sleep(1);
 		if( getFlashStatus() == 1 ){
-			sleep(3);
 			break;
 		}
-		if( Switch::isClosed()  ) {
-			sleep(3);
-			break;
+		if( Switch::isClosed() ) {  // 10 second press to exit OTA
+			count++;
+			if( count > 10 ){
+				ESP_LOGI(FNAME,"Switch pressed > 10 sec: Abort");
+				break;
+			}
+		}else{
+			count = 0;
 		}
 	}
+	sleep(3);
 	software_update.set( 0 );
 	esp_restart();
 }

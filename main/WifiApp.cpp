@@ -31,6 +31,8 @@
 #include <string.h>
 #include "esp_wifi.h"
 #include <list>
+#include <stack>
+#include <vector>
 #include "WifiClient.h"
 #include "sensor.h"
 
@@ -84,7 +86,7 @@ void socket_server(void *setup) {
 	sock_server_t *config = (sock_server_t *)setup;
 	struct sockaddr_in clientAddress[10];  // we support max 10 clients try to connect same time
 	socklen_t clientAddressLength = sizeof(struct sockaddr_in);
-	std::list<int>  clients;
+	std::vector<int>  clients;
 	int sock = create_socket( config->port );
 	if( sock < 0 ) {
 		ESP_LOGE(FNAME, "Socket creation for %d port FAILED: Abort task", config->port );
@@ -106,8 +108,9 @@ void socket_server(void *setup) {
 				Router::pullMsg( *(config->txbuf), s);
 				if( s.length() )
 					ESP_LOGV(FNAME, "port %d to sent %d: bytes, %s", config->port, s.length(), s.c_str() );
-				std::list<int>::iterator it;
-				int client_dead = 0;
+				std::vector<int>::iterator it;
+				std::vector<int>::iterator dead = clients.end();  // past last element
+				// int client_dead = 0;
 				int client;
 				for(it = clients.begin(); it != clients.end(); ++it)
 				{
@@ -122,7 +125,7 @@ void socket_server(void *setup) {
 							if( num < 0 ) {
 								ESP_LOGW(FNAME, "tcp client %d (port %d) send err: %s, remove!", client,  config->port, strerror(errno) );
 								close(client);
-								client_dead = client;
+								dead = it;
 								// check on sending and remove from list if client has died
 							}
 							else{
@@ -130,20 +133,24 @@ void socket_server(void *setup) {
 							}
 						}
 					}
-					if( !client_dead ){
+					if( dead == clients.end()) {
 						// ESP_LOGI(FNAME, "read from client %d", client);
 						SString tcprx;
 						char r[SSTRLEN+1];
 						ssize_t sizeRead = recv(client, r, SSTRLEN-1, MSG_DONTWAIT);
-						if (sizeRead > 0) {
-							tcprx.set( r, sizeRead );
-							Router::forwardMsg( tcprx, *(config->rxbuf) );
-							ESP_LOGV(FNAME, "tcp read from port %d size: %d data: %s", config->port, sizeRead, tcprx.c_str() );
+						if (sizeRead > 0  ) {
+							if( it == clients.begin() ){   // serial is Point to Point so forward info only from the first client
+								tcprx.set( r, sizeRead );
+								Router::forwardMsg( tcprx, *(config->rxbuf) );
+								ESP_LOGV(FNAME, "tcp read from port %d size: %d data: %s", config->port, sizeRead, tcprx.c_str() );
+							}else{
+								ESP_LOGW(FNAME, "tcp client %d (port %d) not first, info discarded", client,  config->port );
+							}
 						}
 					}
 				}
-				if( client_dead )
-					clients.remove( client_dead );
+				if( dead != clients.end() )
+					clients.erase( dead );
 			}
 			vTaskDelay(20/portTICK_PERIOD_MS);
 		}
