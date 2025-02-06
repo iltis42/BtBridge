@@ -42,8 +42,7 @@ typedef struct xcv_sock_server {
 	int port;
 }sock_server_t;
 
-static sock_server_t S1_8880 = { .txbuf = &wl_8880_tx_q, .rxbuf = &wl_8880_rx_q, .port=8880 };
-static sock_server_t S2_8881   = { .txbuf = &wl_8881_tx_q, .rxbuf = &wl_8881_rx_q, .port=8881 };
+static sock_server_t S1_2000 = { .txbuf = &wl_8880_tx_q, .rxbuf = &wl_8880_rx_q, .port=2000 };
 
 int create_socket( int port ){
 	struct sockaddr_in serverAddress;
@@ -179,6 +178,19 @@ void wifi_init_softap()
 {
 	if( blue_enable.get() == WL_WLAN ){
 		tcpip_adapter_init();
+		// stop DHCP server with new IP address specific for skydemon
+		ESP_ERROR_CHECK(tcpip_adapter_dhcps_stop(TCPIP_ADAPTER_IF_AP));
+		// assign a static IP to the network interface
+		tcpip_adapter_ip_info_t info;
+		memset(&info, 0, sizeof(info));
+		IP4_ADDR(&info.ip, 192, 168, 42, 1);
+		IP4_ADDR(&info.gw, 192, 168, 42, 1); //ESP acts as router, so gw addr will be its own addr
+		IP4_ADDR(&info.netmask, 255, 255, 255, 0);
+		ESP_ERROR_CHECK(tcpip_adapter_set_ip_info(TCPIP_ADAPTER_IF_AP, &info));
+		// start the DHCP server
+		ESP_ERROR_CHECK(tcpip_adapter_dhcps_start(TCPIP_ADAPTER_IF_AP));
+		printf("DHCP server started \n");
+
 		ESP_LOGI(FNAME,"now esp_netif_init");
 		ESP_ERROR_CHECK(esp_netif_init());
 		ESP_ERROR_CHECK(esp_event_loop_create_default());
@@ -221,8 +233,7 @@ void wifi_init_softap()
 		ESP_ERROR_CHECK(esp_wifi_start());
 		ESP_ERROR_CHECK(esp_wifi_set_max_tx_power(8));
 
-		xTaskCreatePinnedToCore(&socket_server, "socket_srv_0", 4096, &S1_8880, 17, 0, 0);  // 10
-		xTaskCreatePinnedToCore(&socket_server, "socket_ser_1", 4096, &S2_8881, 18, 0, 0);  // 10
+		xTaskCreatePinnedToCore(&socket_server, "socket_srv_0", 4096, &S1_2000, 17, 0, 0);
 
 		ESP_LOGI(FNAME, "wifi_init_softap finished SUCCESS. SSID:%s password:%s channel:%d", (char *)wc.ap.ssid, (char *)wc.ap.password, wc.ap.channel );
 	}
